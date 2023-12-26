@@ -50,6 +50,82 @@ CREATE TABLE employee (
 );
 ////////////////////////////////////////////////////
 Mahdye:
+create table Estates_and_Locations
+	(id		   				int,
+	 estate_name			varchar(255),
+	 city_id				int,
+     estate_type_id			int,
+     floor_space			decimal(8,2) not null,
+     number_of_balconies	int not null,
+     balconies_space		decimal(8,2) not null,
+     number_of_bedrooms		int not null,
+     number_of_bathrooms	int not null,
+     number_of_garages		int not null,
+     number_of_parking_spaces int not null,
+     pets_allowed			bool not null,
+     estate_description		text,
+     estate_status_id		int,
+	 primary key (id) auto_increment,
+     foreign key (city_id) references City (id),
+     foreign key (estate_type_id) references  Estate_Type (id),
+     foreign key (state_status_id) references Estate_Status (id)
+	);
+    
+    
+    create table Estate_Type
+    (id			int,
+    type_name	varchar(128),
+    primary key (id) auto_increment
+    );
+    
+    
+    create table Estate_Status
+    (id			int,
+    estate_status_name		varchar(64),
+    primary key (id)
+    );
+    
+    
+    create table City
+    (id			int,
+    city_name	varchar(128),
+    country_id		int,
+    primary key (id),
+    foreign key (country_id) references Country(id)
+    );
+    
+    
+    create table Country
+    (id			int,
+    country_name	varchar(128),
+    primary key(id)
+    );
+    
+    
+    create table In_Charge
+    (id				int,
+    estate_id		int,
+    employee_id		int,
+    delete_from		date,
+    data_to			date not null,
+    primary key (id),
+    foreign key (estate_id) references Estate_and_Locations(id),
+    foreign key (employee_id) references Employee(id)
+    );
+    
+    
+    create table Contact
+    (id				int,
+    client_id		int,
+    employee_id		int not null,
+    estate_id		int not null,
+    contact_time	timestamp,
+    contact_detai	text,
+    primary key (id),
+    foreign key (employee_id) references Employee(id),
+    foreign key (client_id) references Clients(id),
+    foreign key (estate_id) references Estate_and_Locations(id)
+    );
 ///////////////////////////////////////////////////
 Nariman:
 create table under_contact
