@@ -1,5 +1,3 @@
-
-
 Mina:
 ////////////////////////////////////////////////////
 Mahdye:
@@ -23,4 +21,17 @@ create table payment_frequency
 (
     id int primary key,
     payment_frequency_name varchar(64)
+)
+create table contract_invoice 
+(
+    id int primary key,
+    contract_id int,
+    invoice_number varchar(64),
+    issued_by text,
+    issued_to text,
+    invoice_details text,
+    invoice_amount decimal(10,2),
+    date_created date,
+    billing_date date,
+    date_paid date not null
 )
