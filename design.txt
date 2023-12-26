@@ -1,0 +1,26 @@
+
+
+Mina:
+////////////////////////////////////////////////////
+Mahdye:
+///////////////////////////////////////////////////
+Nariman:
+create table under_contact
+(
+   id int primary key ,
+   estate_id int,
+   contract_id int
+)
+
+create table contact_type
+(
+    id int primary key ,
+    contract_type_name varchar(64),
+    fee_percentage decimal(5,2),
+)
+
+create table payment_frequency
+(
+    id int primary key,
+    payment_frequency_name varchar(64)
+)
