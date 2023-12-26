@@ -1,14 +1,14 @@
 Mina:
 CREATE TABLE contract (
-	 id int PRIMARY KEY auto_increment,
+	id int PRIMARY KEY auto_increment,
     client_id int, FOREIGN KEY REFERENCES client(id),
     employee_id int, FOREIGN KEY REFERENCES employee(id),
     contract_type_id int, FOREIGN KEY REFERENCES contract_type(id),
-    contrct_details text,
+    contract_details text,
     payment_frequency_id int, FOREIGN KEY REFERENCES payment_frequency(id),
     number_of_invoices int,
     paymant_amount decimal(10, 2) NOT NULL,
-    fee_precentage decimal(5, 2),
+    fee_percentage decimal(5, 2),
     fee_amount decimal(10, 2) NOT NULL,
     date_signed date,
     start_date date,
@@ -17,7 +17,7 @@ CREATE TABLE contract (
 );
 
 CREATE TABLE client (
-	 id int PRIMARY KEY auto_increment,
+	id int PRIMARY KEY auto_increment,
     client_name varchar(255),
     client_address varchar(255),
     contact_person varchar(255) NOT NULL,
@@ -28,23 +28,23 @@ CREATE TABLE client (
 );
 
 CREATE TABLE transaction (
-	 id int PRIMARY KEY auto_increment,
+	id int PRIMARY KEY auto_increment,
     transaction_type_id int, FOREIGN KEY REFERENCES transaction_type(id),
     client_offered int, FOREIGN KEY REFERENCES client(id),
     client_requested int, FOREIGN KEY REFERENCES client(id),
     transaction_date date,
-    transaction_datails text,
+    transaction_details text,
 );
 
 
 CREATE TABLE transaction_type (
-	 id int PRIMARY KEY auto_increment,
+    id int PRIMARY KEY auto_increment,
     transaction_type_name varchar(64)
 );
 
 
 CREATE TABLE employee (
-	 id int PRIMARY KEY auto_increment,
+	id int PRIMARY KEY auto_increment,
     first_name varchar(64),
     last_name varchar (64)
 );
