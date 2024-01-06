@@ -142,7 +142,7 @@ CREATE TABLE contact
 # Nariman:
 
 CREATE TABLE under_contract
-    (id         int PRIMARY KEY auto_increment,
+    (id          int PRIMARY KEY auto_increment,
     estate_id    int,
     contract_id  int,
     FOREIGN KEY (estate_id) REFERENCES estate(id),
