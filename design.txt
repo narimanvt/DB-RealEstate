@@ -173,3 +173,4 @@ create table contract_invoice
     date_paid       date NOT NULL,
     FOREIGN KEY (contract_id) REFERENCES contract(id)
     );
+    
