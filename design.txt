@@ -77,7 +77,7 @@ CREATE TABLE estate
      number_of_garages		    int NOT NULL,
      number_of_parking_spaces   int NOT NULL,
      pets_allowed			    bool NOT NULL,
-     has_elavator               bool NOT NULL,
+     has_elevator               bool NOT NULL,
      has_warehouse              bool NOT NULL,
      year_of_construction       year NOT NULL,
      estate_description		    text,
