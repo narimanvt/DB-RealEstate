@@ -168,3 +168,4 @@ create table contract_invoice
     billing_date date,
     date_paid date not null
 )
+testing
