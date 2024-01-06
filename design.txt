@@ -160,7 +160,7 @@ CREATE TABLE payment_frequency
     );
 
 
-create table contract_invoice 
+CREATE TABLE contract_invoice 
     (id             int PRIMARY KEY auto_increment,
     contract_id     int,
     invoice_number  varchar(64),
@@ -173,4 +173,3 @@ create table contract_invoice
     date_paid       date NOT NULL,
     FOREIGN KEY (contract_id) REFERENCES contract(id)
     );
-    
