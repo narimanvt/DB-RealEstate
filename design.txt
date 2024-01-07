@@ -26,6 +26,8 @@ CREATE TABLE contract
 CREATE TABLE client 
     (id             int PRIMARY KEY auto_increment,
     client_name     varchar(255),
+    client_lastname varchar(255),
+    national_code   int NOT NULL,
     client_address  varchar(255),
     contact_person  varchar(255) NOT NULL,
     phone           varchar(64) NOT NULL,
@@ -55,9 +57,13 @@ CREATE TABLE transaction_type
 
 
 CREATE TABLE employee
-    (id             int PRIMARY KEY auto_increment,
-    first_name      varchar(64),
-    last_name       varchar (64)
+    (id              int PRIMARY KEY auto_increment,
+    first_name       varchar(64),
+    last_name        varchar (64),
+    national_code    int NOT NULL,
+    phone_number     int NOT NULL,
+    email            varchar(64) NOT NULL,
+    employee_details text NOT NULL
     );
 
 -------------------------------------------------------------------------------------
@@ -90,7 +96,7 @@ CREATE TABLE estate
      house_name                     varchar(255),
      FOREIGN KEY (city_id) REFERENCES city(id),
      FOREIGN KEY (estate_type_id) REFERENCES  estate_type(id),
-     FOREIGN KEY (state_status_id) REFERENCES estate_status(id)
+     FOREIGN KEY (estate_status_id) REFERENCES estate_status(id)
 	);
     
     
@@ -106,7 +112,7 @@ CREATE TABLE estate_status
     );
     
     
-CREATE TABLE table city
+CREATE TABLE city
     (id			            int PRIMARY KEY auto_increment,
     city_name	    	    varchar(128),
     country_id		        int,
@@ -124,8 +130,8 @@ CREATE TABLE in_charge
     (id			    int PRIMARY KEY auto_increment,
     estate_id		int,
     employee_id		int,
-    delete_from		date,
-    data_to		    date NOT NULL,
+    date_from		date,
+    date_to		    date NOT NULL,
     FOREIGN KEY (estate_id) REFERENCES estate(id),
     FOREIGN KEY (employee_id) REFERENCES employee(id)
     );
