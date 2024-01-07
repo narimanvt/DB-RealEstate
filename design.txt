@@ -93,7 +93,6 @@ CREATE TABLE estate
      floor                          int NOT NULL,
      postal_code                    int,
      photo_of_the_house             ?,
-     house_name                     varchar(255),
      FOREIGN KEY (city_id) REFERENCES city(id),
      FOREIGN KEY (estate_type_id) REFERENCES  estate_type(id),
      FOREIGN KEY (estate_status_id) REFERENCES estate_status(id)
