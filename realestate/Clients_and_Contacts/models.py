@@ -1,5 +1,5 @@
 from django.db import models
-from Estates_and_Locations.models import Estate
+#from Estates_and_Locations.models import Estate
 # Create your models here.
 
 class Client(models.Model):
@@ -35,7 +35,7 @@ class Contact(models.Model):
     contact_detail = models.TextField(null=True)
     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE, null=False)
     client_id = models.ForeignKey(Client, on_delete=models.CASCADE, null=False)
-    estate_id = models.ForeignKey(Estate, on_delete=models.CASCADE, null=False)
+    estate_id = models.ForeignKey('Estates_and_Locations.Estate', on_delete=models.CASCADE, null=False)
 
     def __str__(self):
         return f"contact id {self.id}"
