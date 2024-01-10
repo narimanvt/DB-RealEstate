@@ -1,6 +1,41 @@
 from django.db import models
 
 # Create your models here.
+class Transaction_type(models.Model):
+    id = models.AutoField(primary_key=True)
+    transaction_type_name = models.CharField(max_length=64, null=False)
+    def __str__(self):
+        return f"{self.transaction_type_name}"
+    
+
+class Transaction(models.Model):
+    id = models.AutoField(primary_key=True)  
+    transaction_type = models.ForeignKey(Transaction_type, on_delete = models.CASCADE, null=False)
+    client_offered = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='offered_transactions', null=False)
+    client_requested = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='requested_transactions', null=False) 
+    transaction_date = models.DateField(null=False)
+    transaction_details = models.TextField(null=True)
+    
+    def __str__(self):
+        return f"Transaction with id {self.id}"
+
+class Payment_frequency(models.Model):
+    id = models.AutoField(primary_key=True)
+    payment_frequency_name = models.CharField(max_length=64, null=False)
+
+    def __str__(self):
+        return f"{self.payment_frequency_name}"
+    
+
+class Contract_type(models.Model):
+    id = models.AutoField(primary_key=True)
+    contract_type_name = models.CharField(max_length=64, null=False)
+    fee_percentage = models.DecimalField(max_digits=5, decimal_places=2, null=False)
+
+    def __str__(self):
+        return f"{self.contract_type_name}"
+
+
 class Contract(models.Model):
     id = models.AutoField(primary_key=True)
     client_id = models.ForeignKey(Client, on_delete=models.CASCADE, null=False)
@@ -19,15 +54,6 @@ class Contract(models.Model):
 
     def __str__(self) :
         return f"Contract with id {self.id}"
-
-
-class Contract_type(models.Model):
-    id = models.AutoField(primary_key=True)
-    contract_type_name = models.CharField(max_length=64, null=False)
-    fee_percentage = models.DecimalField(max_digits=5, decimal_places=2, null=False)
-
-    def __str__(self):
-        return f"{self.contract_type_name}"
 
 
 class Contract_invoice(models.Model):
@@ -50,30 +76,3 @@ class Under_contract(models.Model):
 
     def __str__(self):
         return f"Under contract {self.id}"
-    
-
-class Transaction(models.Model):
-    id = models.AutoField(primary_key=True)  
-    transaction_type = models.ForeignKey(Transaction_type, on_delete = models.CASCADE, null=False)
-    client_offered = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='offered_transactions', null=False)
-    client_requested = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='requested_transactions', null=False) 
-    transaction_date = models.DateField(null=False)
-    transaction_details = models.TextField(null=True)
-    
-    def __str__(self):
-        return f"Transaction with id {self.id}"
-    
-
-class Transaction_type(models.Model):
-    id = models.AutoField(primary_key=True)
-    transaction_type_name = models.CharField(max_length=64, null=False)
-    def __str__(self):
-        return f"{self.transaction_type_name}"
-    
-
-class Payment_frequency(models.Model):
-    id = models.AutoField(primary_key=True)
-    payment_frequency_name = models.CharField(max_length=64, null=False)
-
-    def __str__(self):
-        return f"{self.payment_frequency_name}"
