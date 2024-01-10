@@ -1,4 +1,5 @@
 from django.db import models
+from Clients_and_Contacts.models import Client, Employee
 
 # Create your models here.
 class Transaction_type(models.Model):
