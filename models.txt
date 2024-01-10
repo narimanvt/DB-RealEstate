@@ -171,7 +171,6 @@ class In_charge(models.Model):
        return f"in_charge with id {self.id}"
 
 class Contact(models.Model):
-<<<<<<< HEAD
     id = models.AutoField(primary_key=True)
     client_id = models.IntegerField(null=False) 
     employee_id = models.IntegerField(null=False)
