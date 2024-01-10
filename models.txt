@@ -181,17 +181,6 @@ class Contact(models.Model):
     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE, null=False)
     client_id = models.ForeignKey(Client, on_delete=models.CASCADE, null=False)
     estate_id = models.ForeignKey(Estate, on_delete=models.CASCADE, null=False)
-=======
-     id = models.AutoField(primary_key=True)
-     client_id = models.IntegerField(null=False) 
-     employee_id = models.IntegerField(null=False)
-     estate_id = models.IntegerField(null=False)
-     contact_time = models.TimeField(null=True)
-     contact_detail = models.TextField(null=True)
-     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE, null=False)
-     client_id = models.ForeignKey(Client, on_delete=models.CASCADE, null=False)
-     estate_id = models.ForeignKey(Estate, on_delete=models.CASCADE, null=False)
->>>>>>> 6785b492b450cca9de726155daad4e9d4aa8c8fa
 
     def __str__(self):
         return f"contact id {self.id}"
