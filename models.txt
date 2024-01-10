@@ -52,10 +52,7 @@ class Employee(models.Model):
     id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=64, null=False)
     last_name = models.CharField(max_length=64, null=False)
-    national_code = models.IntegerField(validators=[
-            MinValueValidator(2),
-            MaxValueValidator(9999999999)  # Maximum value with 10 digits
-        ], null=False)
+    national_code = models.IntegerField(null=False)
     
     def __str__(self):
         return f"Employee with id {self.id}"
@@ -178,7 +175,7 @@ class Contact(models.Model):
      client_id = models.IntegerField(null=False) 
      employee_id = models.IntegerField(null=False)
      estate_id = models.IntegerField(null=False)
-     contact_time = models.TimeField()
+     contact_time = models.TimeField(null=True)
      contact_detail = models.TextField(null=True)
      employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE, null=False)
      client_id = models.ForeignKey(Client, on_delete=models.CASCADE, null=False)
