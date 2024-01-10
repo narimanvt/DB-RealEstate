@@ -3,6 +3,6 @@ from django.http import HttpResponse
 from django.template import loader
 # Create your views here.
 
-def app(request):
+def Estates_and_Locations(request):
     template = loader.get_template('first-page.html')
     return HttpResponse(template.render())
