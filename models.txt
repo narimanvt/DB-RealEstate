@@ -2,132 +2,7 @@ from typing import Any
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
-class Transaction_type(models.Model):
-    id = models.AutoField(primary_key=True)
-    transaction_type_name = models.CharField(max_length=64, null=False)
-    def __str__(self):
-        return f"{self.transaction_type_name}"
-    
-class Client(models.Model):
-    id = models.AutoField(primary_key=True)
-    client_name = models.CharField(max_length=255, null=False)
-    client_address = models.CharField(max_length=255, null=False)
-    contact_person = models.CharField(max_length=255, null=False)
-    phone= models.CharField(max_length=64, null=False)
-    mobile = models.CharField(max_length=64, null=False)
-    mail = models.EmailField(null=True)
-    client_details = models.TextField(null=False)
-
-    def __str__(self):
-        return f"Client with id {self.id}"
-
-class Transaction(models.Model):
-    id = models.AutoField(primary_key=True)  
-    transaction_type = models.ForeignKey(Transaction_type, on_delete = models.CASCADE, null=False)
-    client_offered = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='offered_transactions', null=True)
-    client_requested = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='requested_transactions', null=True) 
-    transaction_date = models.DateField(null=False)
-    transaction_details = models.TextField(null=True)
-    
-    def __str__(self):
-        return f"Transaction with id {self.id}"
-    
-class Contract_type(models.Model):
-    id = models.AutoField(primary_key=True)
-    contract_type_name = models.CharField(max_length=64, null=False)
-    fee_percentage = models.DecimalField(max_digits=5, decimal_places=2, null=False)
-
-    def __str__(self):
-        return f"{self.contract_type_name}"
-
-class Payment_frequency(models.Model):
-    id = models.AutoField(primary_key=True)
-    payment_frequency_name = models.CharField(max_length=64, null=False)
-
-    def __str__(self):
-        return f"{self.payment_frequency_name}"
-
-
-class Employee(models.Model):
-    id = models.AutoField(primary_key=True)
-    first_name = models.CharField(max_length=64, null=False)
-    last_name = models.CharField(max_length=64, null=False)
-    national_code = models.IntegerField(null=False)
-    
-    def __str__(self):
-        return f"Employee with id {self.id}"
-    
-    
-class Contract(models.Model):
-    id = models.AutoField(primary_key=True)
-    client_id = models.ForeignKey(Client, on_delete=models.CASCADE, null=False)
-    employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE, null=False)
-    contract_type = models.ForeignKey(Contract_type, on_delete=models.CASCADE, null=False)
-    contract_details = models.TextField(null=True)
-    payment_frequency = models.ForeignKey(Payment_frequency, on_delete=models.CASCADE, null=False)
-    number_of_invoices = models.IntegerField(null=False)
-    payment_amount = models.DecimalField(max_digits=10, decimal_places=2, null=False)
-    fee_percentage = models.DecimalField(max_digits=5, decimal_places=2, null=False)
-    fee_amount = models.DecimalField(max_digits=10, decimal_places=2, null=False)
-    date_signed = models.DateField(null=False)
-    start_date = models.DateField(null=False)
-    end_date = models.DateField(null=False)
-    transaction_id = models.ForeignKey(Transaction, on_delete=models.CASCADE, null=False)
-
-    def __str__(self) :
-        return f"Contract with id {self.id}"
-
-class Contract_invoice(models.Model):
-    id = models.AutoField(primary_key=True)
-    contract_id = models.ForeignKey(Contract, on_delete=models.CASCADE, null=False)
-    invoice_number = models.CharField(max_length=64, null=False)
-    issued_by = models.TextField()
-    issued_to = models.TextField()
-    invoice_details = models.TextField(null=True)
-    invoice_amount = models.DecimalField(max_digits=10, decimal_places=2, null=False)
-    date_created = models.DateField(null=False)
-    billing_date = models.DateField(null=False)
-    date_paid = models.DateField(null=False)
-
-    def __str__(self):
-        return f"{self.id}"
-    
-class Under_contract(models.Model):
-    id = models.AutoField(primary_key=True)
-    estate_id = models.IntegerField(null=False)
-    contract_id = models.ForeignKey(Contract, on_delete=models.CASCADE, null=False)
-
-    def __str__(self):
-        return f"Under contract {self.id}"
-    
-class Country(models.Model):
-    id = models.AutoField(primary_key=True)
-     country_name = models.CharField(max_length=128, null=False)
-
-    def __str__(self):
-        return f"{self.country_name}"
-
-class City(models.Model):
-    id = models.AutoField(primary_key=True)
-    city_name = models.CharField(max_length=128, null=False)
-    country_id = models.ForeignKey(Country, on_delete=models.CASCADE, null=False)
-
-    def __str__(self):
-        return f"{self.city_name}"
-
-class Estate_type(models.Model):
-    id = models.AutoField(primary_key=True)
-    type_name = models.CharField(max_length=128, null=False)
-
-    def __str__(self):
-        return f"{self.type_name}"
-
-class Estate_status(models.Model):
-    id = models.AutoField(primary_key=True)
-    estate_status_name = models.CharField(max_length=64, null=False)     
-
-    def __str__(self):
-        return f"{self.estate_status_name}"
+###Estates and Locations###
 
 class Estate(models.Model):
     id = models.AutoField(primary_key=True)
@@ -158,6 +33,40 @@ class Estate(models.Model):
     def __str__(self):
         return f"estate id {self.id}"
 
+
+class Estate_type(models.Model):
+    id = models.AutoField(primary_key=True)
+    type_name = models.CharField(max_length=128, null=False)
+
+    def __str__(self):
+        return f"{self.type_name}"
+
+
+class Estate_status(models.Model):
+    id = models.AutoField(primary_key=True)
+    estate_status_name = models.CharField(max_length=64, null=False)     
+
+    def __str__(self):
+        return f"{self.estate_status_name}"
+
+
+class Country(models.Model):
+    id = models.AutoField(primary_key=True)
+    country_name = models.CharField(max_length=128, null=False)
+
+    def __str__(self):
+        return f"{self.country_name}"
+
+
+class City(models.Model):
+    id = models.AutoField(primary_key=True)
+    city_name = models.CharField(max_length=128, null=False)
+    country_id = models.ForeignKey(Country, on_delete=models.CASCADE, null=False)
+
+    def __str__(self):
+        return f"{self.city_name}"
+
+
 class In_charge(models.Model):
     id = models.AutoField(primary_key=True)
     estate_id = models.IntegerField(null=False)
@@ -169,6 +78,33 @@ class In_charge(models.Model):
 
     def __str__(self):
        return f"in_charge with id {self.id}"
+
+
+###Clients and Contacts###
+
+class Client(models.Model):
+    id = models.AutoField(primary_key=True)
+    client_name = models.CharField(max_length=255, null=False)
+    client_address = models.CharField(max_length=255, null=False)
+    contact_person = models.CharField(max_length=255, null=False)
+    phone= models.CharField(max_length=64, null=False)
+    mobile = models.CharField(max_length=64, null=False)
+    mail = models.EmailField(null=True)
+    client_details = models.TextField(null=False)
+
+    def __str__(self):
+        return f"Client with id {self.id}"
+
+
+class Employee(models.Model):
+    id = models.AutoField(primary_key=True)
+    first_name = models.CharField(max_length=64, null=False)
+    last_name = models.CharField(max_length=64, null=False)
+    national_code = models.IntegerField(null=False)
+    
+    def __str__(self):
+        return f"Employee with id {self.id}"
+    
 
 class Contact(models.Model):
     id = models.AutoField(primary_key=True)
@@ -183,3 +119,85 @@ class Contact(models.Model):
 
     def __str__(self):
         return f"contact id {self.id}"
+
+
+###Contracts and Transactions###
+
+class Contract(models.Model):
+    id = models.AutoField(primary_key=True)
+    client_id = models.ForeignKey(Client, on_delete=models.CASCADE, null=False)
+    employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE, null=False)
+    contract_type = models.ForeignKey(Contract_type, on_delete=models.CASCADE, null=False)
+    contract_details = models.TextField(null=True)
+    payment_frequency = models.ForeignKey(Payment_frequency, on_delete=models.CASCADE, null=False)
+    number_of_invoices = models.IntegerField(null=False)
+    payment_amount = models.DecimalField(max_digits=10, decimal_places=2, null=False)
+    fee_percentage = models.DecimalField(max_digits=5, decimal_places=2, null=False)
+    fee_amount = models.DecimalField(max_digits=10, decimal_places=2, null=False)
+    date_signed = models.DateField(null=False)
+    start_date = models.DateField(null=False)
+    end_date = models.DateField(null=False)
+    transaction_id = models.ForeignKey(Transaction, on_delete=models.CASCADE, null=False)
+
+    def __str__(self) :
+        return f"Contract with id {self.id}"
+
+
+class Contract_type(models.Model):
+    id = models.AutoField(primary_key=True)
+    contract_type_name = models.CharField(max_length=64, null=False)
+    fee_percentage = models.DecimalField(max_digits=5, decimal_places=2, null=False)
+
+    def __str__(self):
+        return f"{self.contract_type_name}"
+
+
+class Contract_invoice(models.Model):
+    id = models.AutoField(primary_key=True)
+    contract_id = models.ForeignKey(Contract, on_delete=models.CASCADE, null=False)
+    invoice_number = models.CharField(max_length=64, null=False)
+    issued_by = models.TextField(null=)
+    issued_to = models.TextField(null=)
+    invoice_details = models.TextField(null=True)
+    invoice_amount = models.DecimalField(max_digits=10, decimal_places=2, null=False)
+    date_created = models.DateField(null=False)
+    billing_date = models.DateField(null=False)
+    date_paid = models.DateField(null=False)
+
+    def __str__(self):
+        return f"{self.id}"
+    
+class Under_contract(models.Model):
+    id = models.AutoField(primary_key=True)
+    estate_id = models.IntegerField(null=False)
+    contract_id = models.ForeignKey(Contract, on_delete=models.CASCADE, null=False)
+
+    def __str__(self):
+        return f"Under contract {self.id}"
+    
+
+class Transaction(models.Model):
+    id = models.AutoField(primary_key=True)  
+    transaction_type = models.ForeignKey(Transaction_type, on_delete = models.CASCADE, null=False)
+    client_offered = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='offered_transactions', null=False)
+    client_requested = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='requested_transactions', null=False) 
+    transaction_date = models.DateField(null=False)
+    transaction_details = models.TextField(null=True)
+    
+    def __str__(self):
+        return f"Transaction with id {self.id}"
+    
+
+class Transaction_type(models.Model):
+    id = models.AutoField(primary_key=True)
+    transaction_type_name = models.CharField(max_length=64, null=False)
+    def __str__(self):
+        return f"{self.transaction_type_name}"
+    
+
+class Payment_frequency(models.Model):
+    id = models.AutoField(primary_key=True)
+    payment_frequency_name = models.CharField(max_length=64, null=False)
+
+    def __str__(self):
+        return f"{self.payment_frequency_name}"
