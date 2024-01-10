@@ -1,5 +1,5 @@
 from django.db import models
-
+from Estates_and_Locations.models import Estate
 # Create your models here.
 
 class Client(models.Model):
