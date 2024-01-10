@@ -156,8 +156,6 @@ class Contract_invoice(models.Model):
     id = models.AutoField(primary_key=True)
     contract_id = models.ForeignKey(Contract, on_delete=models.CASCADE, null=False)
     invoice_number = models.CharField(max_length=64, null=False)
-    issued_by = models.TextField(null=False)
-    issued_to = models.TextField(null=False)
     invoice_details = models.TextField(null=True)
     invoice_amount = models.DecimalField(max_digits=10, decimal_places=2, null=False)
     date_created = models.DateField(null=False)
