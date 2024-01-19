@@ -13,7 +13,7 @@ class Address(models.Model):
     unit_number = models.IntegerField()
     plate_number = models.CharField(max_length=10)
     zip_code = models.CharField(max_length=20)
-    
+
 
 class Estate(models.Model):
     ESTATE_TYPES = (
@@ -28,7 +28,7 @@ class Estate(models.Model):
         ("PentHouse", "PentHouse")
     )
     estate_name = models.CharField(max_length=255, null=True)
-    estate_type = models.CharField(max_length=128, null=False, choices=ESTATE_TYPES.choices)
+    estate_type = models.CharField(max_length=20, null=False, choices=ESTATE_TYPES.choices)
     estate_status = models.IntegerField(null=False)
     address = models.ForeignKey(Address, on_delete=models.CASCADE, null=False)
     floor_space = models.DecimalField(max_digits=8, decimal_places=2, null=False)
