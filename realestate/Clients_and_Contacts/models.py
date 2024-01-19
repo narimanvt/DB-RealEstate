@@ -4,12 +4,23 @@ from django.db import models
 
 class Client(models.Model):
     id = models.AutoField(primary_key=True)
-    client_name = models.CharField(max_length=255, null=False)
-    client_address = models.CharField(max_length=255, null=False)
+    #client_name = models.CharField(max_length=255, null=False)
+
+
+    #client_address = models.CharField(max_length=255, null=False)
+    
+    first_name = models.CharField(max_length=64, null=False)
+    last_name = models.CharField(max_length=64, null=False)
+    address = models.CharField(max_length=255, null=False)
+
     contact_person = models.CharField(max_length=255, null=False)
     phone= models.CharField(max_length=64, null=False)
-    mobile = models.CharField(max_length=64, null=False)
-    mail = models.EmailField(null=True)
+    
+    #mobile = models.CharField(max_length=64, null=False)
+
+    Email = models.EmailField(null=True)
+
+    #mail = models.EmailField(null=True)
     client_details = models.TextField(null=False)
 
     def __str__(self):
@@ -21,6 +32,12 @@ class Employee(models.Model):
     first_name = models.CharField(max_length=64, null=False)
     last_name = models.CharField(max_length=64, null=False)
     national_code = models.IntegerField(null=False)
+
+    ##################3
+    phone = models.IntegerField(null=False)
+    Email = models.EmailField(null=True)
+
+    ###################3
     
     def __str__(self):
         return f"Employee with id {self.id}"
