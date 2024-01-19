@@ -1,26 +1,11 @@
 from django.db import models
-#from Estates_and_Locations.models import Estate
-# Create your models here.
+from django.contrib.auth.models import User
 
 class Client(models.Model):
-    id = models.AutoField(primary_key=True)
-    #client_name = models.CharField(max_length=255, null=False)
-
-
-    #client_address = models.CharField(max_length=255, null=False)
-    
-    first_name = models.CharField(max_length=64, null=False)
-    last_name = models.CharField(max_length=64, null=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     address = models.CharField(max_length=255, null=False)
-
     contact_person = models.CharField(max_length=255, null=False)
-    phone= models.CharField(max_length=64, null=False)
-    
-    #mobile = models.CharField(max_length=64, null=False)
-
-    Email = models.EmailField(null=True)
-
-    #mail = models.EmailField(null=True)
+    phone = models.CharField(max_length=64, null=False)
     client_details = models.TextField(null=False)
 
     def __str__(self):
@@ -28,31 +13,20 @@ class Client(models.Model):
 
 
 class Employee(models.Model):
-    id = models.AutoField(primary_key=True)
-    first_name = models.CharField(max_length=64, null=False)
-    last_name = models.CharField(max_length=64, null=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     national_code = models.IntegerField(null=False)
-
-    ##################3
     phone = models.IntegerField(null=False)
-    Email = models.EmailField(null=True)
 
-    ###################3
-    
     def __str__(self):
         return f"Employee with id {self.id}"
     
 
 class Contact(models.Model):
-    id = models.AutoField(primary_key=True)
-    client_id = models.IntegerField(null=False) 
-    employee_id = models.IntegerField(null=False)
-    estate_id = models.IntegerField(null=False)
-    contact_time = models.TimeField(null=True)
-    contact_detail = models.TextField(null=True)
-    employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE, null=False)
-    client_id = models.ForeignKey(Client, on_delete=models.CASCADE, null=False)
-    estate_id = models.ForeignKey('Estates_and_Locations.Estate', on_delete=models.CASCADE, null=False)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, null=False)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, null=False)
+    estate = models.ForeignKey('Estates_and_Locations.Estate', on_delete=models.CASCADE, null=False)
+    date = models.TimeField(null=True)
+    detail = models.TextField(null=True)
 
     def __str__(self):
         return f"contact id {self.id}"
