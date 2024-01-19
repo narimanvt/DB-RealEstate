@@ -30,11 +30,3 @@ class ContractInvoiceAdmin(admin.ModelAdmin):
     list_display = ('Contract_id', 'Amount', 'Date Created', 'Billing Date', 'Date Paid')
     list_filter = ('Contract_id', 'Date Created', 'Billing Date', 'Date Paid')
     search_fields = ['Contract_id']
-
-#admin.site.register(Transaction_type)
-#admin.site.register(Transaction)
-#admin.site.register(Payment_frequency)
-#admin.site.register(Contract_type)
-#admin.site.register(Contract)
-#admin.site.register(Contract_invoice)
-#admin.site.register(Under_contract)
