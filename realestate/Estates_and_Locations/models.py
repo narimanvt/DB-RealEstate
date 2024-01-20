@@ -2,7 +2,7 @@ from django.db import models
 import datetime
 
 class Address(models.Model):
-    CITY_NAME = ()
+    #CITY_NAME = ()
     state = models.CharField(max_length=255) 
     city = models.CharField(max_length=255)
     street = models.CharField(max_length=255)
