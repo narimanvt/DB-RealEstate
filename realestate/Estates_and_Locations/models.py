@@ -21,14 +21,14 @@ class Estate(models.Model):
         ("House", "House"),
         ("Office", "Office"),
         ("Villa", "Villa"),
-        ("Retail", "Retail")
+        ("Retail", "Retail"),
         ("Land", "Land"),
         ("Warehouse", "Warehouse"),
         ("Industrial Shed", "Industrial Shed"),
         ("PentHouse", "PentHouse")
     )
     estate_name = models.CharField(max_length=255, null=True)
-    estate_type = models.CharField(max_length=20, null=False, choices=ESTATE_TYPES.choices)
+    estate_type = models.CharField(max_length=20, null=False, choices=ESTATE_TYPES)
     estate_status = models.IntegerField(null=False)
     address = models.ForeignKey(Address, on_delete=models.CASCADE, null=False)
     floor_space = models.DecimalField(max_digits=8, decimal_places=2, null=False)

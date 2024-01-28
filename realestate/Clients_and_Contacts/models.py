@@ -1,6 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
-
+#from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+User=get_user_model()
 
 class PhoneNumber(models.Model):
     PHONE_TYPES = (
@@ -13,7 +14,10 @@ class PhoneNumber(models.Model):
 
 
 class Client(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    first_name = models.ForeignKey(User, on_delete=models.CASCADE)
+    last_name = models.ForeignKey(User, on_delete=models.CASCADE)
+    email = models.ForeignKey(User, on_delete=models.CASCADE)
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)
     national_code = models.IntegerField(null=False, unique=True)
     address = models.CharField(max_length=255, null=False)
     contact_person = models.CharField(max_length=255, null=False)
@@ -28,7 +32,10 @@ class Client(models.Model):
 
 
 class Employee(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    first_name = models.ForeignKey(User, on_delete=models.CASCADE)
+    last_name = models.ForeignKey(User, on_delete=models.CASCADE)
+    email = models.ForeignKey(User, on_delete=models.CASCADE)
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)
     national_code = models.IntegerField(null=False, unique=True)
     phone = models.ManyToManyField(PhoneNumber, blank=True)
 

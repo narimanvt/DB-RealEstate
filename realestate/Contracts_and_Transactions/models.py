@@ -6,10 +6,10 @@ class Transaction(models.Model):
         ("Rent", "Rent"),
         ("Barter", "Barter"),
         ("Mortgage", "Mortgage"),
-        ("Pre-Sale", "Pre-Sale")
+        ("Pre-Sale", "Pre-Sale"),
         ("Lease And Rent", "Lease And Rent"),
     )
-    transaction_type = models.CharField(max_length=128, null=False, choices=TRANSACTION_TYPES.choices)
+    transaction_type = models.CharField(max_length=128, null=False, choices=TRANSACTION_TYPES)
     client_offered = models.ForeignKey('Clients_and_Contacts.Client', on_delete=models.CASCADE, related_name='offered_transactions', null=False)
     client_requested = models.ForeignKey('Clients_and_Contacts.Client', on_delete=models.CASCADE, related_name='requested_transactions', null=False) 
     date = models.DateField(null=False)
@@ -30,7 +30,7 @@ class Contract_type(models.Model):
 class Contract(models.Model):
     client = models.ForeignKey('Clients_and_Contacts.Client', on_delete=models.CASCADE, null=False)
     employee = models.ForeignKey('Clients_and_Contacts.Employee', on_delete=models.CASCADE, null=False)
-    estate = models.ForeignKey('Estates_and_Locations.Estate', null=False)
+    estate = models.ForeignKey('Estates_and_Locations.Estate', on_delete=models.CASCADE, null=False)
     transaction_id = models.ForeignKey(Transaction, on_delete=models.CASCADE, null=False)
     contract_type = models.ForeignKey(Contract_type, on_delete=models.CASCADE, null=False)
     details = models.TextField(null=True)
