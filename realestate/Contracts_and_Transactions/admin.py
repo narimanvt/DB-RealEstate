@@ -10,23 +10,23 @@ from .models import (
 
 @admin.register(Transaction)
 class TransactionAdmin(admin.ModelAdmin):
-    list_display = ('Transaction Type', 'Client Offered', 'Client Requested', 'Transaction Date')
-    list_filter = ('Transaction Type', 'Transaction Date')
-    search_fields = ['Transaction Type', 'Client Offered', 'Client Requested', 'Transaction Date']
+    list_display = ('transaction_type', 'client_offered', 'client_requested', 'date')
+    list_filter = ('transaction_type', 'date')
+    search_fields = ['transaction_type', 'client_offered', 'client_requested', 'date']
 
 @admin.register(Contract_type)
 class ContractTypeAdmin(admin.ModelAdmin):
-    list_display = ('Contract Type', )
-    search_fields = ['Contract Type']
+    list_display = ('contract_type', )
+    search_fields = ['contract_type']
 
 @admin.register(Contract)
 class ContractAdmin(admin.ModelAdmin):
-    list_display = ('Client_id', 'Employee_id', 'Estate_id', 'Contract Type', 'Payment Amount', 'Start Date', 'End Date')
-    list_filter = ('Contract Type', 'Start Date', 'End Date')
-    search_fields = ['Contract Type']
+    list_display = ('client', 'employee', 'estate', 'contract_type', 'payment_amount', 'start_date', 'end_date')
+    list_filter = ('contract_type', 'start_date', 'end_date')
+    search_fields = ['contract_type']
 
 @admin.register(Contract_invoice)
 class ContractInvoiceAdmin(admin.ModelAdmin):
-    list_display = ('Contract_id', 'Amount', 'Date Created', 'Billing Date', 'Date Paid')
-    list_filter = ('Contract_id', 'Date Created', 'Billing Date', 'Date Paid')
-    search_fields = ['Contract_id']
+    list_display = ('contract', 'invoice_amount', 'date_created', 'billing_date', 'date_paid')
+    list_filter = ('contract', 'date_created', 'billing_date', 'date_paid')
+    search_fields = ['contract']

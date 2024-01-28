@@ -28,9 +28,9 @@ class Contract_type(models.Model):
 
 
 class Contract(models.Model):
-    client_id = models.ForeignKey('Clients_and_Contacts.Client', on_delete=models.CASCADE, null=False)
-    employee_id = models.ForeignKey('Clients_and_Contacts.Employee', on_delete=models.CASCADE, null=False)
-    estate_id = models.ForeignKey('Estates_and_Locations.Estate', null=False)
+    client = models.ForeignKey('Clients_and_Contacts.Client', on_delete=models.CASCADE, null=False)
+    employee = models.ForeignKey('Clients_and_Contacts.Employee', on_delete=models.CASCADE, null=False)
+    estate = models.ForeignKey('Estates_and_Locations.Estate', null=False)
     transaction_id = models.ForeignKey(Transaction, on_delete=models.CASCADE, null=False)
     contract_type = models.ForeignKey(Contract_type, on_delete=models.CASCADE, null=False)
     details = models.TextField(null=True)
@@ -48,7 +48,7 @@ class Contract(models.Model):
 
 
 class Contract_invoice(models.Model):
-    contract_id = models.ForeignKey(Contract, on_delete=models.CASCADE, null=False)
+    contract = models.ForeignKey(Contract, on_delete=models.CASCADE, null=False)
     invoice_number = models.CharField(max_length=64, null=False)
     invoice_amount = models.DecimalField(max_digits=10, decimal_places=2, null=False)
     details = models.TextField(null=True)

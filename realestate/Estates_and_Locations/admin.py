@@ -5,17 +5,17 @@ from .models import Address, Estate, In_charge
 
 @admin.register(Address)
 class AddressAdmin(admin.ModelAdmin):
-    list_display = ('State', 'City', 'Street')
-    list_filter = ('State', 'City', 'Street')
-    search_fields = ['State', 'City', 'Street']
+    list_display = ('state', 'city', 'street')
+    list_filter = ('state', 'city', 'street')
+    search_fields = ['state', 'city', 'street']
 
 @admin.register(Estate)
 class EstateAdmin(admin.ModelAdmin):
-    list_display = ('Estate Type', 'Estate Status', 'Year Of Construction')
-    list_filter = ('Estate Type', 'Estate Status', 'Year Of Construction')
-    search_fields = ['Estate Type', 'Estate Status', 'Year Of Construction']
+    list_display = ('estate_type', 'estate_status', 'year_of_construction')
+    list_filter = ('estate_type', 'estate_status', 'year_of_construction')
+    search_fields = ['estate_type', 'estate_status', 'year_of_construction']
 
 @admin.register(In_charge)
 class InChargeAdmin(admin.ModelAdmin):
-    list_display = ('Estate', 'Employee')
-    list_filter = ('Estate', 'Employee')
+    list_display = ('estate', 'employee')
+    list_filter = ('estate', 'employee')

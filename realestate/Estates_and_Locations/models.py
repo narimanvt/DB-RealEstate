@@ -57,8 +57,8 @@ class Estate(models.Model):
 class In_charge(models.Model):
     date_from = models.DateField(null=False)
     data_to = models.DateField(null=False)
-    estate_id = models.ForeignKey(Estate, on_delete=models.CASCADE, null=False)
-    employee_id = models.ForeignKey('Clients_and_Contacts.Employee', on_delete=models.CASCADE, null=False)
+    estate = models.ForeignKey(Estate, on_delete=models.CASCADE, null=False)
+    employee = models.ForeignKey('Clients_and_Contacts.Employee', on_delete=models.CASCADE, null=False)
 
     def __str__(self):
        return f"in_charge with id {self.id}"
