@@ -50,35 +50,60 @@
         <form>
             <div class='form'>
                 <p>Property Type</p>
-                <select>
+                <select name="type">
+                    <option value="">Sort by</option>
                     {% for y in type %}
-                        <option>{{ y.type_name }}</option>
+                        <option value="{{y.id}}">{{ y.type_name }}</option>
                     {% endfor %}
                 </select>
             </div>
           
             <div class='form'>
                 <p>Property Status</p>
-                <select>
+                <select name="status">
+                    <option value="">Sort by</option>
                     {% for x in estates %}
-                        <option>{{ x.estate_status_name }}</option>
+                        <option value="{{x.id}}">{{ x.estate_status_name }}</option>
                     {% endfor %}
                 </select>
             </div>
            
             <div class='form'>
                 <p>Location</p>
-                <select>
+                <select name="city">
+                    <option value="">Sort by</option>
                     {% for z in city %}
-                        <option>{{ z.city_name }}</option>
+                        <option value="{{z.id}}">{{ z.city_name }}</option>
                     {% endfor %}
                 </select>
             </div>
 
             <div class='form search'>
-                <a href='#'><img src="{% static 'Estates_and_Locations/images/search.svg' %}" alt='search'></a>
+                <button type="submit"><img src="{% static 'Estates_and_Locations/images/search.svg' %}" alt='search'></button>
             </div>
         </form>
     </div>
+    <div class="temp">
+
+        <ul>
+            {% for house in filtered_estates %}
+                <li>Name:{{house.estate_name}} / Floor space:{{house.floor_space}} / bedrooms:{{house.number_of_bedrooms}} /
+                     bathrooms: {{house.number_of_bathrooms}} <img src="{{house.photo.url}}",alt="Estate Photo">
+                </li>
+                
+            {% endfor %}
+        </ul>
+    </div>
+    <style>
+        .temp{
+            position:absolute;
+            top: 90%;
+            left: 10%;
+        }
+        .temp img{
+            width: 15%;
+            height: 15%;
+        }
+    </style>
 
 {% endblock %}

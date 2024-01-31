@@ -24,6 +24,9 @@ urlpatterns = [
     path('', include('Clients_and_Contacts.urls', namespace='Clients_and_Contacts')),
     path('', include('Contracts_and_Transactions.urls', namespace='Contracts_and_Transactions')),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
