@@ -1,0 +1,109 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block title %}
+    Main Page
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <nav class="navbar navbar-expand-sm container-fluid">
+            <div class="container">
+                <img class="col-1 navbar-brand" src="{% static 'Estates_and_Locations/images/logo.svg' %}" alt="log">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <div class="container center col-10">
+                        <ul class="navbar-nav justify-content-center">
+                            <li class="nav_item p-4"><a class="nav_link" href="#">Home</a></li>
+                            <li class="nav_item p-4"><a class="nav_link" href="#">Services</a></li>
+                            <li class="nav_item p-4"><a class="nav_link" href="#">Properties</a></li>
+                            <li class="nav_item p-4"><a class="nav_link" href="#">About Us</a></li>
+                            <li class="nav_item p-4"><a class="nav_link" href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="container text-end col-2">
+                        <a class="sign-in p-2" href="#">Sign In</a>
+                        <a class="sign-up p-3" href="#">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="dream-place">
+            <h2>Easiest way to find your</h2>
+            <h1>DREAM PLACE</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s....</p>
+        </div>
+        <div class="container">
+            <img class="ellipse" src="{% static 'Estates_and_Locations/images/Ellipse 1.svg' %}" alt='circle'>
+            <img class="ellipses" src="{% static 'Estates_and_Locations/images/Ellipse 1.svg' %}" alt='circle'>
+            <img class="border border-dark building" src="{% static 'Estates_and_Locations/images/main_page_pic.jpg' %}" alt='building'>
+        </div>
+    </div>
+
+    <div class="forms shadow">
+        <form>
+            <div class='form'>
+                <p>Property Type</p>
+                <select name="type">
+                    <option value="">Sort by</option>
+                    {% for y in type %}
+                        <option value="{{y.id}}">{{ y.type_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+          
+            <div class='form'>
+                <p>Property Status</p>
+                <select name="status">
+                    <option value="">Sort by</option>
+                    {% for x in estates %}
+                        <option value="{{x.id}}">{{ x.estate_status_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+           
+            <div class='form'>
+                <p>Location</p>
+                <select name="city">
+                    <option value="">Sort by</option>
+                    {% for z in city %}
+                        <option value="{{z.id}}">{{ z.city_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class='form search'>
+                <button type="submit"><img src="{% static 'Estates_and_Locations/images/search.svg' %}" alt='search'></button>
+            </div>
+        </form>
+    </div>
+    <div class="temp">
+
+        <ul>
+            {% for house in filtered_estates %}
+                <li>Name:{{house.estate_name}} / Floor space:{{house.floor_space}} / bedrooms:{{house.number_of_bedrooms}} /
+                     bathrooms: {{house.number_of_bathrooms}} <img src="{{house.photo.url}}",alt="Estate Photo">
+                </li>
+                
+            {% endfor %}
+        </ul>
+    </div>
+    <style>
+        .temp{
+            position:absolute;
+            top: 90%;
+            left: 10%;
+        }
+        .temp img{
+            width: 15%;
+            height: 15%;
+        }
+    </style>
+
+{% endblock %}

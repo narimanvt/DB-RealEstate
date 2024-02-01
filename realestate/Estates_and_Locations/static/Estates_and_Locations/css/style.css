@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Lateef:wght@200;300;400;500;600;700;800&family=Manrope:wght@200..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+    padding:0;
+    background-color: #F0F0F0;
+    font-family: 'work sans';
+}
+
+nav a {
+    color: rgb(72, 72, 72);
+    text-decoration: none;
+    font-weight: 300;
+}
+
+nav a:hover {
+    color: black;
+    font-weight: 400;
+}
+
+.sign-in {
+    color: black;
+    font-weight: 700;
+}
+
+.sign-up {
+    background-color: black;
+    color: white;
+    font-weight: 600;
+}
+
+.building {
+    position: absolute;
+    right: 9rem;
+    top: 6rem;
+    z-index: -1;
+    max-height: 85%;
+}
+
+.ellipse {
+    position: absolute;
+    left: 87%;
+    top: 30%;
+}
+
+.ellipses {
+    position: absolute;
+    left: 62%;
+    top: 60%;
+    z-index: -1;
+    max-width: 4rem;
+}
+
+.dream-place {
+    position: absolute;
+    top: 20%;
+}
+
+.dream-place h2 {
+    font-weight: 500;
+    font-size: 3rem;
+}
+
+.dream-place h1 {
+    font-weight: 800;
+    font-size: 6rem;
+}
+
+.dream-place p {
+    max-width: 50%;
+    color: rgb(102, 102, 102);
+}
+
+.forms {
+    margin-top: 25rem;
+    background-color: white;
+    padding: 1rem;  
+    position: absolute;
+    left: 8%;
+}
+
+.form {
+    display: inline-block;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.form p {
+    font-size: 0.9rem;
+    color: #5C5C5C;
+}
+
+select {
+    border: none;
+}
+
+.search {
+    background-color: black;
+    padding: 1rem;
+    position: relative;
+    bottom: 0.8rem;
+}
