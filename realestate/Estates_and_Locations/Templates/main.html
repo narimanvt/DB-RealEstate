@@ -7,7 +7,7 @@
 
 
 {% block content %}
-    <div class="part1">
+    <div class="part1" id="home">
         <div class="container">
             <nav class="navbar navbar-expand-sm container-fluid">
                 <div class="container">
@@ -18,11 +18,11 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <div class="container center col-10">
                             <ul class="navbar-nav justify-content-center">
-                                <li class="nav_item p-4"><a class="nav_link" href="#">Home</a></li>
-                                <li class="nav_item p-4"><a class="nav_link" href="#">Services</a></li>
-                                <li class="nav_item p-4"><a class="nav_link" href="#">Properties</a></li>
-                                <li class="nav_item p-4"><a class="nav_link" href="#">About Us</a></li>
-                                <li class="nav_item p-4"><a class="nav_link" href="#">Contact Us</a></li>
+                                <li class="nav_item p-4"><a class="nav_link" href="#home">Home</a></li>
+                                <li class="nav_item p-4"><a class="nav_link" href="#properties">Properties</a></li>
+                                <li class="nav_item p-4"><a class="nav_link" href="#services">Services</a></li>
+                                <li class="nav_item p-4"><a class="nav_link" href="#about">About Us</a></li>
+                                <li class="nav_item p-4"><a class="nav_link" href="#contact">Contact Us</a></li>
                             </ul>
                         </div>
                         <div class="container text-end col-2">
@@ -87,7 +87,7 @@
     </div>
 
     <div class="container">
-        <div class="part2 ">
+        <div class="part2" id="properties">
             <div class="modern">
                 <h2 class="exper">EXPERIENCE</h2>
                 <h1>MODERN</h1>
@@ -109,13 +109,11 @@
             <a href='#'><img src="{% static 'Estates_and_Locations/images/home1.jpg' %}" alt='house'></a>
             <a href='#'><img src="{% static 'Estates_and_Locations/images/home2.jpg' %}" alt='house'></a>
             <a href='#'><img src="{% static 'Estates_and_Locations/images/home3.jpg' %}" alt='house'></a>
+            <button class="btn btn-outline-light button" type="submit">Show More</button>
         </div>
     </div>
-    
-{% endblock %}
 
-    {% comment %} About Us {% endcomment %}
-    {% comment %} <div class="about_us">
+    {% comment %} <div class="part4" id="about">
         <div class="texts container">
             <h1>ABOUT US</h1>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
@@ -132,6 +130,8 @@
             <img class="about_pic" src="{% static 'Estates_and_Locations/images/about6.jpg' %}" alt='building'>
         </div>
     </div> {% endcomment %}
+    
+{% endblock %}
 
     {% comment %} footer {% endcomment %}
     {% comment %} <div class="footer">
