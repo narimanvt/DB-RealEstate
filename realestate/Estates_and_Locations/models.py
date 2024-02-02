@@ -16,19 +16,19 @@ class City(models.Model):
         return f"{self.city_name}"
 
 
-# class Address(models.Model):
-#     name = models.CharField(max_length=255)
-#     country = models.ForeignKey(Country, on_delete=models.CASCADE, null=False)
-#     city = models.ForeignKey(City, on_delete=models.CASCADE, null=False)
-#     state = models.CharField(max_length=255)
-#     street = models.CharField(max_length=255)
-#     street_number = models.IntegerField()
-#     building_name = models.CharField(max_length=255, blank=True)
-#     district = models.CharField(max_length=255)
-#     floor = models.IntegerField()
-#     unit_number = models.IntegerField()
-#     plate_number = models.CharField(max_length=10)
-#     zip_code = models.CharField(max_length=20)
+class Address(models.Model):
+    name = models.CharField(max_length=255)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE, null=False)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, null=False)
+    state = models.CharField(max_length=255)
+    street = models.CharField(max_length=255)
+    street_number = models.IntegerField()
+    building_name = models.CharField(max_length=255, blank=True)
+    district = models.CharField(max_length=255)
+    floor = models.IntegerField()
+    unit_number = models.IntegerField()
+    plate_number = models.CharField(max_length=10)
+    zip_code = models.CharField(max_length=20)
 
 class Estate_type(models.Model):
 
@@ -60,7 +60,7 @@ class Estate(models.Model):
     estate_name = models.CharField(max_length=255, null=True)
     estate_type_id = models.ForeignKey(Estate_type, on_delete=models.CASCADE, null=False)
     estate_status_id = models.ForeignKey(Estate_status, on_delete=models.CASCADE, null=False)
-    address = models.CharField(max_length=255, null=False)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE, null=False, unique=True)
     floor_space = models.DecimalField(max_digits=8, decimal_places=2, null=False)
     number_of_balconies = models.IntegerField(null=False)
     balconies_space = models.DecimalField(max_digits=8, decimal_places=2, null=False)

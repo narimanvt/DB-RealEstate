@@ -4,7 +4,7 @@ from .models import (
     Estate_status,
     Country,
     City,
-    #Address,
+    Address,
     Estate,
     In_charge,
 )
@@ -31,11 +31,11 @@ class CityAdmin(admin.ModelAdmin):
     list_filter = ('city_name', )
     search_fields = ['city_name']
 
-# @admin.register(Address)
-# class AddressAdmin(admin.ModelAdmin):
-#     list_display = ('state', 'city', 'street')
-#     list_filter = ('state', 'city', 'street')
-#     search_fields = ['state', 'city', 'street']
+@admin.register(Address)
+class AddressAdmin(admin.ModelAdmin):
+    list_display = ('state', 'city', 'street')
+    list_filter = ('state', 'city', 'street')
+    search_fields = ['state', 'city', 'street']
 
 @admin.register(Estate)
 class EstateAdmin(admin.ModelAdmin):
