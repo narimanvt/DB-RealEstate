@@ -67,6 +67,7 @@ nav a:hover {
 .dream-place h1 {
     font-weight: 800;
     font-size: 6rem;
+    color: black;
 }
 
 .dream-place p {
@@ -98,8 +99,113 @@ select {
 }
 
 .search {
-    background-color: black;
-    padding: 1rem;
     position: relative;
     bottom: 0.8rem;
+    padding: 1rem;
+    background-color: black;
+    border: none;
+}
+
+.part2 {
+    position: absolute;
+    top: 100%;
+}
+
+.part2 h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.951);
+}
+
+.part2 h2 {
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+.exper {
+    color: rgba(181, 181, 181, 0.956);
+    position: relative;
+    top: 2rem;
+    right: 20%;
+    z-index: -1;
+    text-shadow: 0 1px 0 #000000;
+}
+
+.living {
+    color: #ffffff;
+    position: relative;
+    top: -2rem;
+    left: 6rem;
+    text-shadow: 0 1px 1px #000000;
+}
+
+.pic {
+    max-width: 30%;
+    position: relative;
+}
+
+.first-pic {
+    top: 5rem;
+    left: 16%;
+}
+
+.second-pic {
+    z-index: -1;
+    top: -10rem;
+    left: 15%;
+}
+
+.modern {
+    margin-left: 20%;
+    margin-right: 50%;
+    position: relative;
+    top: 5rem;
+}
+
+.unparraleled {
+   margin-left: 38%;
+   margin-right: 30%;
+   position: relative;
+   top: -6rem;
+}
+
+.unparraleled span {
+    color: white;
+    text-shadow: 0 1px 1px #000000;
+}
+
+.service {
+    color: white;
+    position: relative;
+    left: 10rem;
+    top: -2rem;
+    text-shadow: 0 1px 1px #000000;
+}
+
+.part3 {
+    position: absolute;
+    top: 230%;
+}
+
+.part3 h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgb(255, 255, 255);
+    position: relative;
+    left: 25rem;
+    margin-right: 60%;
+}
+
+.part3 img {
+    max-width: 25%;
+    position: relative;
+    left: 10rem;
+}
+
+.nothing {
+    position: absolute;
+    left: 3%;
+    z-index: -1;
+    background-color: rgb(0, 0, 0);
+    padding: 30% 50% 20% 50%;
 }
