@@ -16,6 +16,7 @@ def main_page(request):
     }
     return HttpResponse(template.render(context, request))
 
+
 def property(request):
     filtered_estates = Estate.objects.all()
     template = loader.get_template("property.html")
