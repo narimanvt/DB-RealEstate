@@ -113,56 +113,55 @@
         </div>
     </div>
 
-    {% comment %} <div class="part4" id="about">
-        <div class="texts container">
-            <h1>ABOUT US</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to 
-                make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+    <div class="container">
+        <div class="part4 container" id="about">
+            <div class="text">
+                <h1>ABOUT US</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to 
+                    make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
                     of Lorem Ipsum.</p>
-            <button>LEARN MORE</button>
+                <button class="btn btn-dark p-3" type="submit">LEARN MORE</button>
+            </div>
+            <div class="images">
+                <img class="about_pic" src="{% static 'Estates_and_Locations/images/about.svg' %}" alt='building'>
+            </div>
         </div>
-        <div class="images container">
-            <img class="circle" src="{% static 'Estates_and_Locations/images/Ellipse 1.svg' %}" alt='circle'>
-            <img class="circles" src="{% static 'Estates_and_Locations/images/Ellipse 1.svg' %}" alt='circle'>
-            <img class="about_pic" src="{% static 'Estates_and_Locations/images/about6.jpg' %}" alt='building'>
+    </div>
+
+    <footer>
+        <div class="footer container-fluid" id="contact">
+            <div class="part-1">
+                <img class="logo_part" src="{% static 'Estates_and_Locations/images/footer.svg' %}" alt='Logo'>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <img class="icon" src="{% static 'Estates_and_Locations/images/facebook.svg' %}" alt='icon'>
+                <img class="icon" src="{% static 'Estates_and_Locations/images/insta.svg' %}" alt='icon'>
+                <img class="icon" src="{% static 'Estates_and_Locations/images/youtube.svg' %}" alt='icon'>
+                <img class="icon" src="{% static 'Estates_and_Locations/images/tweeter.svg' %}" alt='icon'>
+            </div>
+            <div class="part-2">
+                <h2>About</h2>
+                <a href="#">Menu</a><br><br>
+                <a href="#">Features</a><br><br>
+                <a href="#">News and Blogs</a><br><br>
+                <a href="#">Help and Supports</a>
+            </div>
+            <div class="part-3">
+                <h2>Company</h2>
+                <a href="#">How we work</a><br><br>
+                <a href="#">Terms of service</a><br><br>
+                <a href="#">Pricing</a><br><br>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="part-4">
+                <h2>Contact Us</h2>
+                <a href="#">Tehran, Fereshte st</a><br><br>
+                <a href="#">+98 212-345-7698</a><br><br>
+                <p>legacyhomes@mail.com</p>
+            </div>
         </div>
-    </div> {% endcomment %}
+    </footer>
     
 {% endblock %}
-
-    {% comment %} footer {% endcomment %}
-    {% comment %} <div class="footer">
-        <div class="part1">
-            <img src="{% static 'Estates_and_Locations/images/logo.svg' %}" alt='Logo'>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <img src="{% static 'Estates_and_Locations/images/facebook.svg' %}" alt='icon'>
-            <img src="{% static 'Estates_and_Locations/images/insta.svg' %}" alt='icon'>
-            <img src="{% static 'Estates_and_Locations/images/youtube.svg' %}" alt='icon'>
-            <img src="{% static 'Estates_and_Locations/images/tweeter.svg' %}" alt='icon'>
-        </div>
-        <div class="part2">
-            <h2>About</h2>
-            <p>Features</p>
-            <p>News and Blogs</p>
-            <p>Help and Supports</p>
-            <p>Menu</p>
-        </div>
-        <div class="part3">
-            <h2>Company</h2>
-            <p>How we work</p>
-            <p>Terms of service</p>
-            <p>Pricing</p>
-            <p>FAQ</p>
-        </div>
-        <div class="part4">
-            <h2>Contact Us</h2>
-            <p>Tehran, Fereshte st</p>
-            <p>+98 212-345-7698</p>
-            <p>legacyhomes@mail.com</p>
-        </div>
-        <img src="{% static 'Estates_and_Locations/images/footer.jpg' %}" alt='footer'>
-    </div> {% endcomment %}
-
