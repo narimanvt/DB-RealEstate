@@ -18,8 +18,8 @@ class City(models.Model):
 
 class Address(models.Model):
     name = models.CharField(max_length=255)
-    country = models.ForeignKey(Country, on_delete=models.CASCADE, null=False)
-    city = models.ForeignKey(City, on_delete=models.CASCADE, null=False)
+    country = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
     street = models.CharField(max_length=255)
     street_number = models.IntegerField()
@@ -60,7 +60,7 @@ class Estate(models.Model):
     estate_name = models.CharField(max_length=255, null=True)
     estate_type_id = models.ForeignKey(Estate_type, on_delete=models.CASCADE, null=False)
     estate_status_id = models.ForeignKey(Estate_status, on_delete=models.CASCADE, null=False)
-    address = models.ForeignKey(Address, on_delete=models.CASCADE, null=False, unique=True)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE, null=False)
     floor_space = models.DecimalField(max_digits=8, decimal_places=2, null=False)
     number_of_balconies = models.IntegerField(null=False)
     balconies_space = models.DecimalField(max_digits=8, decimal_places=2, null=False)
