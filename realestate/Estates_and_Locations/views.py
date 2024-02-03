@@ -37,9 +37,9 @@ def property(request):
     }
     return HttpResponse(template.render(context, request))
 
-def options(request):
+def estate_form(request):
     # Connect to db
-    template = loader.get_template("index.html")
+    template = loader.get_template("estateform.html")
     # context = {}
     return HttpResponse(template.render())
 

@@ -1,0 +1,90 @@
+
+.form select {
+    border: none;  /* Remove the border */
+    border-bottom: 1px solid #000;  /* Set bottom border to a black line */
+    padding: 10px;  /* Add padding */
+    width: calc(100% - 2px);  /* Adjust width to accommodate borders */
+    box-sizing: border-box;
+}
+
+
+.form {
+    position: absolute;
+    max-width: 1500px;
+    left:23%;
+    padding: 20px;
+    background-color: #c7c7c7;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-row{
+    display: flex;
+    justify-content: space-between;
+
+}
+.form-choice{
+    display:flex;
+}
+.form-choice .form-group{
+    margin-top:-10px;
+}
+
+.form-group{
+    margin: 0 10px;
+}
+.inner-form{
+    display: inline-block;
+    padding-right: 80px;
+    
+}
+
+/* Style form labels */
+.form label {
+    color: #1b1919;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Style form input fields */
+.form input[type="text"],
+.form input[type="number"],
+.form select,
+.form textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 15px;
+    border:none;
+    border-bottom: 1px solid #4f4949;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Style checkboxes */
+.form input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+/* Style submit button */
+.form button[type="submit"] {
+    background-color: #70C1D2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style submit button on hover */
+.form button[type="submit"]:hover {
+    background-color: #5CAAC2;
+}
+
+img{
+    width: 30%;
+    height: 150%;
+    position: absolute;
+    left:40%
+}
