@@ -10,11 +10,11 @@ body{
     background-color: #F0F0F0;
     font-family: 'work sans';
 }
-/* 
+
 .where-to-go {
-    position: absolute;
-    top: 30rem;
-} */
+    /* position: absolute;
+    top: 30rem; */
+}
 
 /* .location {
     display: flex;

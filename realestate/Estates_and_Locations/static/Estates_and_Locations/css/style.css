@@ -172,7 +172,7 @@ nav a:hover {
 }
 
 .service {
-    color: white;
+    color: rgb(255, 255, 255);
     position: relative;
     left: 10rem;
     top: -2rem;
@@ -198,11 +198,6 @@ nav a:hover {
     position: relative;
     left: 12rem;
 }
-
-/* .part3 img:hover { */
-    /* max-width: 30%; */
-    /* transition: 1s; */
-/* } */
 
 .nothing {
     position: absolute;
@@ -245,7 +240,7 @@ nav a:hover {
 .part4 p {
     color: #353535;
     font-weight: 300;
-    max-width: 70%;
+    max-width: 90%;
     padding-bottom: 1rem;
     padding-top: 1rem;
 }
@@ -261,9 +256,6 @@ nav a:hover {
     justify-content: center;
     background-color: #000000;
     padding: 5rem;
-    /* filter: brightness(50%); */
-    /* background-image: url('images/zero-take-WvHrrR1C5Po-unsplash.jpg'); */
-    /* background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('images/zero-take-WvHrrR1C5Po-unsplash.jpg'); */
 }
 
 .footer h2 {
