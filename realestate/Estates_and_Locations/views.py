@@ -9,22 +9,10 @@ def main_page(request):
     type = Estate_type.objects.all()
     city = City.objects.all()
     template = loader.get_template('main.html')
-
-    type_id = request.GET.get('estate_type_id')
-    status_id = request.GET.get('estate_status_id')
-    city_id = request.GET.get('city') 
-
-    if type_id:
-        filtered_estates = filtered_estates.filter(estate_type_id=type_id)
-    elif status_id:
-        filtered_estates = filtered_estates.filter(estate_status_id = status_id)
-    elif city_id:
-        filtered_estates = filtered_estates.filter(city_id = city_id)
     context = {
         'estates' : estates,
         'type' : type,
         'city' : city,
-        'filtered_estates' : filtered_estates,
     }
     return HttpResponse(template.render(context, request))
 
@@ -33,16 +21,16 @@ def property(request):
     filtered_estates = Estate.objects.all()
     template = loader.get_template("property.html")
 
-    # type_id = request.GET.get('estate_type_id')
-    # status_id = request.GET.get('estate_status_id')
-    # city_id = request.GET.get('city') 
+    type_id = request.GET.get('type')
+    status_id = request.GET.get('status')
+    city_id = request.GET.get('city') 
 
-    # if type_id:
-    #     filtered_estates = filtered_estates.filter(estate_type_id=type_id)
-    # elif status_id:
-    #     filtered_estates = filtered_estates.filter(estate_status_id = status_id)
-    # elif city_id:
-    #     filtered_estates = filtered_estates.filter(city_id = city_id)
+    if type_id:
+        filtered_estates = filtered_estates.filter(estate_type_id=type_id)
+    elif status_id:
+        filtered_estates = filtered_estates.filter(estate_status_id = status_id)
+    elif city_id:
+        filtered_estates = filtered_estates.filter(city_id = city_id)
         
     context = {
         'filtered_estates' : filtered_estates,
