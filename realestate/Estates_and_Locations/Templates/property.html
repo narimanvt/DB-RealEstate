@@ -1,16 +1,122 @@
 {% extends "master.html" %}
+{% load static %}
 
 {% block title %}
     Properties
 {% endblock %}
 
+{% block additional_head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Estates_and_Locations/css/property.css' %}">
+{% endblock %}
 
 {% block content %}
-    {% for estate in filtered_estates %}
-        <p>Name:{{ estate.estate_name }}</p>
-        <p>Floor space:{{ estate.floor_space }}</p>
-        <p>bedrooms:{{ estate.number_of_bedrooms }}</p>
-        <p>bathrooms: {{ estate.number_of_bathrooms }}</p>
-        <img style="max-width: 30%" src="{{ estate.photo.url }}" alt="Estate Photo">
-    {% endfor %}
+    <div class="container">
+        <div class="filter">
+            <form action="{% url 'Estates_and_Locations:property' %}" method="get">
+                <div class='form'>
+                    <p>Which City?</p>
+                    <select class="form-select" name="city">
+                        {% for y in city %}
+                            <option value="{{y.id}}">{{ y.city_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class='form'>
+                    <p>What Type?</p>
+                    <select class="form-select" name="type">
+                        {% for a in type %}
+                            <option value="{{a.id}}">{{ a.type_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class='form'>
+                    <p>Which State?</p>
+                    <select class="form-select" name="state">
+                        {% for b in state %}
+                            <option value="{{b.id}}">{{ b.state }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class='form'>
+                    <p>Which District?</p>
+                    <select class="form-select" name="district">
+                        {% for c in district %}
+                            <option value="{{c.id}}">{{ c.district }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class='form'>
+                    <p>How Many Bedrooms?</p>
+                    <select class="form-select" name="no_bedroom">
+                        {% for d in no_bedroom %}
+                            <option value="{{d.id}}">{{ d.number_of_bedrooms }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class='form'>
+                    <p>How Many Bathrooms?</p>
+                    <select class="form-select" name="no_bathroom">
+                        {% for e in no_bathroom %}
+                            <option value="{{e.id}}">{{ e.number_of_bathrooms }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class='form'>
+                    <p>How Many Balconies?</p>
+                    <select class="form-select" name="no_balcony">
+                        {% for f in no_balcony %}
+                            <option value="{{f.id}}">{{ f.number_of_balconies }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class='form'>
+                    <p>How Much Space?</p>
+                    <select class="form-select" name="floor_space">
+                        {% for x in floor_space %}
+                            <option value="{{x.id}}">{{ x.floor_space }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class='form'>
+                    <p>How Much Cost?</p>
+                    <select class="form-select" name="payment">
+                        {% for z in payment %}
+                            <option value="{{z.id}}">{{ z.payment_amount }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class='form'>
+                    <button class="search btn btn-dark" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="heading">
+            <h1>Find Your Forever Home</h1>
+        </div>
+
+        <div class="row">
+            {% for estate in filtered_estates %}
+            <div class="col-4 text-dark home shadow">
+                <img src="{{ estate.photo.url }}" alt="Estate Photo">
+                <div class="detail">
+                    <p>Name: {{ estate.estate_name }}</p>
+                    <p>Floor space: {{ estate.floor_space }}</p>
+                    <p>bedrooms: {{ estate.number_of_bedrooms }}</p>
+                    <p>bathrooms: {{ estate.number_of_bathrooms }}</p>
+                    <button class="btn btn-dark" type="button">View Details</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

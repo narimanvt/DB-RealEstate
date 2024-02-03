@@ -95,10 +95,6 @@ nav a:hover {
     color: #5C5C5C;
 }
 
-select {
-    border: none;
-}
-
 .search {
     position: relative;
     bottom: 0.8rem;

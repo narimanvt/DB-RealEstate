@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Lateef:wght@200;300;400;500;600;700;800&family=Manrope:wght@200..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    padding:0;
+    background-color: #F0F0F0;
+    font-family: 'work sans';
+    position: absolute;
+    left: 20%;
+}
+
+.home {
+    display: flex;
+    background-color: white;
+    font-weight: 300;
+    border: solid 1px black;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 50px;
+    position: relative;
+    right: 10%;
+}
+
+.home img {
+    max-width: 60%;
+    border-radius: 20%;
+}
+
+.detail {
+    margin-left: 1rem;
+}
+
+.filter {
+    background-color: white;
+    padding: 1rem;  
+    position: absolute;
+    right: 0;
+}
+
+.form {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.form p {
+    font-size: 0.9rem;
+    color: #5C5C5C;
+}
+
+.heading h1 {
+    color: black;
+    font-weight: 800;
+    position: relative;
+    top: 2rem;
+    left: 3rem;
+    margin-bottom: 3rem;
+    max-width: 40%;
+}
