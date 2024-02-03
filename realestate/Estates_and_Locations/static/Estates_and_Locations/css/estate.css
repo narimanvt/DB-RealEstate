@@ -12,11 +12,11 @@ body{
 }
 
 .where-to-go {
-    /* position: absolute;
-    top: 30rem; */
+    position: absolute;
+    top: 30rem;
 }
 
-/* .location {
+.location {
     display: flex;
     flex-direction: column;
     background-color: black;
@@ -25,4 +25,4 @@ body{
     padding: 5rem;
     font-weight: 200;
     margin-top: 10rem;
-} */
+}
