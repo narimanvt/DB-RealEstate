@@ -131,3 +131,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'Estates_and_Locations/static')]
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
