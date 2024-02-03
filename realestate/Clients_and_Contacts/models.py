@@ -2,21 +2,21 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Client(models.Model):
-    name = models.CharField(max_length=255, null=False)
+    name = models.CharField(max_length=255, null=False, default='')
     national_code = models.IntegerField(null=False, unique=True)
     address = models.CharField(max_length=255, null=False)
-    contact_person = models.CharField(max_length=255, null=False)
-    phone = models.CharField(max_length=64, null=False)
-    mobile = models.CharField(max_length=64, null=False)
+    contact_person = models.CharField(max_length=255, null=False, default='')
+    phone = models.CharField(max_length=64, null=False , default='')
+    mobile = models.CharField(max_length=64, null=False, default='')
     mail = models.EmailField(null=True)
-    client_details = models.TextField(null=False)
+    client_details = models.TextField(null=True)
 
     def __str__(self):
         return f"Client with id {self.id}"
 
 class Employee(models.Model):
-    first_name = models.CharField(max_length=64, null=False)
-    last_name = models.CharField(max_length=64, null=False)
+    first_name = models.CharField(max_length=64, null=False , default='')
+    last_name = models.CharField(max_length=64, null=True)
     national_code = models.IntegerField(null=False, unique=True)
     phone_number = models.IntegerField(null=False, unique=True)
 
@@ -24,7 +24,7 @@ class Employee(models.Model):
         return f"Employee with id {self.id}"
     
 class Contact(models.Model):
-    client_id =  models.ForeignKey(Client, on_delete=models.CASCADE, null=False)
+    client_id =  models.ForeignKey(Client, on_delete=models.CASCADE ,default='')
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, null=False)
     estate = models.ForeignKey('Estates_and_Locations.Estate', on_delete=models.CASCADE, null=False)
     contact_time = models.TimeField(null=True)
