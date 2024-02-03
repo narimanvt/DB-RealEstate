@@ -6,13 +6,11 @@
 
 
 {% block content %}
-    {% comment %} {% for estate in filtered_estates %}
+    {% for estate in filtered_estates %}
         <p>Name:{{ estate.estate_name }}</p>
         <p>Floor space:{{ estate.floor_space }}</p>
         <p>bedrooms:{{ estate.number_of_bedrooms }}</p>
         <p>bathrooms: {{ estate.number_of_bathrooms }}</p>
         <img src="{{ estate.photo.url }}" alt="Estate Photo">
-    {% endfor %} {% endcomment %}
-
-    <h1>hello</h1>
+    {% endfor %}
 {% endblock %}
