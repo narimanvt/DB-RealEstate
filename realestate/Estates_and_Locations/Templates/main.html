@@ -5,6 +5,10 @@
     Main Page
 {% endblock %}
 
+{% block additional_head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Estates_and_Locations/css/style.css' %}">
+{% endblock %}
+
 
 {% block content %}
     <div class="part1" id="home">
@@ -20,7 +24,6 @@
                             <ul class="navbar-nav justify-content-center">
                                 <li class="nav_item p-4"><a class="nav_link" href="#home">Home</a></li>
                                 <li class="nav_item p-4"><a class="nav_link" href="#properties">Properties</a></li>
-                                <li class="nav_item p-4"><a class="nav_link" href="#services">Services</a></li>
                                 <li class="nav_item p-4"><a class="nav_link" href="#about">About Us</a></li>
                                 <li class="nav_item p-4"><a class="nav_link" href="#contact">Contact Us</a></li>
                             </ul>
@@ -80,7 +83,7 @@
                 </div>
 
                 <div class='form'>
-                    <button class="search" type="submit"><img src="{% static 'Estates_and_Locations/images/search.svg' %}" alt='search'></button>
+                    <button class="search" type="submit"><a href="property/"><img src="{% static 'Estates_and_Locations/images/search.svg' %}" alt='search'></a></button>
                 </div>
             </form>
         </div>
@@ -109,7 +112,7 @@
             <a href='#'><img src="{% static 'Estates_and_Locations/images/home1.jpg' %}" alt='house'></a>
             <a href='#'><img src="{% static 'Estates_and_Locations/images/home2.jpg' %}" alt='house'></a>
             <a href='#'><img src="{% static 'Estates_and_Locations/images/home3.jpg' %}" alt='house'></a>
-            <button class="btn btn-outline-light button" type="submit">Show More</button>
+            <button class="btn btn-outline-light button" type="submit"><a href="#">Show More</a></button>
         </div>
     </div>
 
@@ -123,7 +126,7 @@
                     remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
                     Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
                     of Lorem Ipsum.</p>
-                <button class="btn btn-dark p-3" type="submit">LEARN MORE</button>
+                <button class="btn btn-dark p-3" type="submit"><a href="#">LEARN MORE</a></button>
             </div>
             <div class="images">
                 <img class="about_pic" src="{% static 'Estates_and_Locations/images/about.svg' %}" alt='building'>
@@ -136,10 +139,10 @@
             <div class="part-1">
                 <img class="logo_part" src="{% static 'Estates_and_Locations/images/footer.svg' %}" alt='Logo'>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <img class="icon" src="{% static 'Estates_and_Locations/images/facebook.svg' %}" alt='icon'>
-                <img class="icon" src="{% static 'Estates_and_Locations/images/insta.svg' %}" alt='icon'>
-                <img class="icon" src="{% static 'Estates_and_Locations/images/youtube.svg' %}" alt='icon'>
-                <img class="icon" src="{% static 'Estates_and_Locations/images/tweeter.svg' %}" alt='icon'>
+                <a href="#"><img class="icon" src="{% static 'Estates_and_Locations/images/facebook.svg' %}" alt='icon'></a>
+                <a href="#"><img class="icon" src="{% static 'Estates_and_Locations/images/insta.svg' %}" alt='icon'></a>
+                <a href="#"><img class="icon" src="{% static 'Estates_and_Locations/images/youtube.svg' %}" alt='icon'></a>
+                <a href="#"><img class="icon" src="{% static 'Estates_and_Locations/images/tweeter.svg' %}" alt='icon'></a>
             </div>
             <div class="part-2">
                 <h2>About</h2>
