@@ -52,7 +52,7 @@ class Estate(models.Model):
     unit_number = models.IntegerField(null=False)
     plate_number = models.CharField(max_length=10)
     zip_code = models.CharField(max_length=20)
-    country = models.ForeignKey(Country,on_delete=models.CASCADE, null=False , default='Iran')
+    country = models.ForeignKey(Country,on_delete=models.CASCADE, null=False)
     city = models.ForeignKey(City , on_delete=models.CASCADE, null=False, default='')
     photo = models.ImageField(upload_to='images/', null=False)
 
