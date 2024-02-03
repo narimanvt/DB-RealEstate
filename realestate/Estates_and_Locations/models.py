@@ -46,14 +46,14 @@ class Estate(models.Model):
     year_of_construction = models.IntegerField(null=False)
     description = models.TextField(null=True)
     state = models.CharField(max_length=255)
-    district = models.CharField(max_length=255)
+    district = models.CharField(max_length=255, null=True)
     street = models.CharField(max_length=255)
-    floor_number = models.IntegerField(null=False)
+    floor_number = models.IntegerField(null=False , default=1)
     unit_number = models.IntegerField(null=False)
     plate_number = models.CharField(max_length=10)
     zip_code = models.CharField(max_length=20)
     country = models.ForeignKey(Country,on_delete=models.CASCADE, null=False)
-    city = models.ForeignKey(City , on_delete=models.CASCADE, null=False)
+    city = models.ForeignKey(City , on_delete=models.CASCADE, null=False, default='')
     photo = models.ImageField(upload_to='images/', null=False)
 
     def get_age_of_construction(self):
