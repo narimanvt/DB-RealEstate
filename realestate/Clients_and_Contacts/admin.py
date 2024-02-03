@@ -18,8 +18,10 @@ class EmployeeAdmin(admin.ModelAdmin):
     list_filter = ('first_name', 'last_name', 'username')
     search_fields = ['first_name', 'last_name', 'national_code', 'phone_number', 'email', 'username', 'password']
 
-@admin.register(Contact)
-class ContactAdmin(admin.ModelAdmin):
-    list_display = ('client', 'employee', 'estate', 'date')
-    list_filter = ('client', 'employee', 'estate', 'date')
-    search_fields = ['client', 'employee', 'estate', 'date']
+# @admin.register(Contact)
+# class ContactAdmin(admin.ModelAdmin):
+#     list_display = ('client', 'employee', 'estate', 'date')
+#     list_filter = ('client', 'employee', 'estate', 'date')
+#     search_fields = ['client', 'employee', 'estate', 'date']
+
+admin.site.register(Contact)
