@@ -21,7 +21,7 @@ class Employee(models.Model):
     national_code = models.IntegerField(null=False, unique=True)
     phone_number = models.IntegerField(null=False, unique=True)
     email = models.EmailField(null=True)
-    client_details = models.TextField(null=True)
+    employee_details = models.TextField(null=True)
     username = models.CharField(max_length=64, null=False)
     password = models.CharField(max_length =64, null=False)
 
@@ -29,9 +29,10 @@ class Employee(models.Model):
         return f"Employee with id {self.id}"
     
 class Contact(models.Model):
+    Client = models.ForeignKey(Client, on_delete=models.CASCADE, null=False)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, null=False)
     estate = models.ForeignKey('Estates_and_Locations.Estate', on_delete=models.CASCADE, null=False)
-    contact_time = models.DateTimeField(null=True)
+    date = models.DateTimeField(null=True)
     detail = models.TextField(null=True)
 
     def __str__(self):
