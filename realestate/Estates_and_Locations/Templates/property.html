@@ -15,7 +15,8 @@
             <form action="{% url 'Estates_and_Locations:property' %}" method="get">
                 <div class='form'>
                     <p>Which City?</p>
-                    <select class="form-select shadow" name="city">
+                    <select class="form-select" name="city">
+                        <option value=""></option>
                         {% for y in city %}
                             <option value="{{y.id}}">{{ y.city_name }}</option>
                         {% endfor %}
@@ -24,8 +25,9 @@
 
                 <div class='form'>
                     <p>What Type?</p>
-                    <select class="form-select shadow" name="type">
-                        {% for a in type %}
+                    <select class="form-select" name="type">
+                        <option value=""></option>
+                        {% for a in estate_type %}
                             <option value="{{a.id}}">{{ a.type_name }}</option>
                         {% endfor %}
                     </select>
@@ -33,66 +35,80 @@
 
                 <div class='form'>
                     <p>Which State?</p>
-                    <select class="form-select shadow" name="state">
-                        {% for b in state %}
-                            <option value="{{b.id}}">{{ b.state }}</option>
+                    <select class="form-select" name="status">
+                        <option value=""></option>
+                        {% for b in estate_status %}
+                            <option value="{{b.id}}">{{ b.estate_status_name }}</option>
                         {% endfor %}
                     </select>
                 </div>
 
                 <div class='form'>
                     <p>Which District?</p>
-                    <select class="form-select shadow" name="district">
-                        {% for c in district %}
-                            <option value="{{c.id}}">{{ c.district }}</option>
+                    <select class="form-select" name="district">
+                        <option value=""></option>
+                        {% for district_value in districts %}
+                            <option value="{{ district_value }}">{{ district_value }}</option>
                         {% endfor %}
                     </select>
                 </div>
 
                 <div class='form'>
                     <p>How Many Bedrooms?</p>
-                    <select class="form-select shadow" name="no_bedroom">
-                        {% for d in no_bedroom %}
-                            <option value="{{d.id}}">{{ d.number_of_bedrooms }}</option>
+                    <select class="form-select" name="no_bedroom">
+                        <option value=""></option>
+                        {% for count_bedroom in rooms %}
+                            <option value="{{ count_bedroom }}">{{ count_bedroom }}</option>
                         {% endfor %}
                     </select>
                 </div>
 
                 <div class='form'>
                     <p>How Many Bathrooms?</p>
-                    <select class="form-select shadow" name="no_bathroom">
-                        {% for e in no_bathroom %}
-                            <option value="{{e.id}}">{{ e.number_of_bathrooms }}</option>
+                    <select class="form-select" name="no_bathroom">
+                        <option value=""></option>
+                        {% for count_bathroom in rooms %}
+                            <option value="{{ count_bathroom }}">{{ count_bathroom }}</option>
                         {% endfor %}
                     </select>
                 </div>
 
                 <div class='form'>
                     <p>How Many Balconies?</p>
-                    <select class="form-select shadow" name="no_balcony">
-                        {% for f in no_balcony %}
-                            <option value="{{f.id}}">{{ f.number_of_balconies }}</option>
+                    <select class="form-select" name="no_balcony">
+                        <option value=""></option>
+                        {% for count_balconies in rooms %}
+                            <option value="{{count_balconies}}">{{ count_balconies }}</option>
                         {% endfor %}
                     </select>
                 </div>
 
                 <div class='form'>
                     <p>How Much Space?</p>
-                    <select class="form-select shadow" name="floor_space">
+                    <!-- <select class="form-select" name="floor_space">
                         {% for x in floor_space %}
                             <option value="{{x.id}}">{{ x.floor_space }}</option>
                         {% endfor %}
-                    </select>
+                    </select> -->
+                    <input type="range" id="floor_space" name="floor_space" min="0" max="1010" step="10">
+                    <output for="floor_space" id="space_output" name="floor_space_output">0</output>
                 </div>
+                <script>
+                    const spaceRange = document.getElementById('floor_space');
+                    const spaceOutput = document.getElementById('space_output');
 
-                <div class='form'>
+                    spaceRange.addEventListener('input', function() {
+                        spaceOutput.value = spaceRange.value;});
+                </script>
+
+                <!-- <div class='form'>
                     <p>How Much Cost?</p>
                     <select class="form-select shadow" name="payment">
                         {% for z in payment %}
                             <option value="{{z.id}}">{{ z.payment_amount }}</option>
                         {% endfor %}
                     </select>
-                </div>
+                </div> -->
 
                 <div class='form'>
                     <button class="search btn btn-dark" type="submit">Search</button>
