@@ -1,17 +1,7 @@
 from django.db import models
 
 class Transaction_type(models.Model):
-
-    TRANSACTION_TYPES = (
-        ("Buy", "Buy"),
-        ("Rent", "Rent"),
-        ("Barter", "Barter"),
-        ("Mortgage", "Mortgage"),
-        ("Pre-Sale", "Pre-Sale"),
-        ("Lease And Rent", "Lease And Rent"),
-    )
-
-    transaction_type_name = models.CharField(max_length=64, null=False, unique=True, choices=TRANSACTION_TYPES)
+    transaction_type_name = models.CharField(max_length=64, null=False)
     def __str__(self):
         return f"{self.transaction_type_name}"
     
