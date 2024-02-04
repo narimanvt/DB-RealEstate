@@ -13,7 +13,7 @@ class Client(models.Model):
     password = models.CharField(max_length =64, null=False)
 
     def __str__(self):
-        return f"Client with id {self.id}"
+        return f"Client with id {self.national_code}"
 
 class Employee(models.Model):
     first_name = models.CharField(max_length=64, null=False)

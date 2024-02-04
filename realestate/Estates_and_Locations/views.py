@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.template import loader
 from .models import Estate_status, Estate_type, City, Estate
 from Contracts_and_Transactions.models import Contract
-from .forms import EstateForm
+from .forms import EstateForm, Sign
 
 def main_page(request):
     estates = Estate_status.objects.all()
@@ -83,3 +83,16 @@ def estate_form(request):
 def details(request):
     template = loader.get_template("details.html")
     return HttpResponse(template.render())
+
+def sign(request):
+    if request.method == 'POST':
+        form = Sign(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('main_page')
+        
+    else:
+        form = Sign()
+    template = loader.get_template("sign.html")
+    context={'form': form}
+    return HttpResponse(template.render(context, request))
