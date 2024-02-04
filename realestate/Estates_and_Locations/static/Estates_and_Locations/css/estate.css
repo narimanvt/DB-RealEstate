@@ -12,17 +12,55 @@ body{
 }
 
 .where-to-go {
-    position: absolute;
+    display: flex;
+    justify-content: center;
+    position: relative;
     top: 30rem;
 }
 
+/* button:active {
+    background-color: black;
+} */
+
+.where-to-go button {
+    margin-right: 1rem;
+}
+
+.where-to-go img {
+    padding: 2rem;
+}
+
 .location {
-    display: flex;
-    flex-direction: column;
     background-color: black;
     color: white;
     max-width: 20%;
     padding: 5rem;
     font-weight: 200;
-    margin-top: 10rem;
+    border-radius: 5%;
 }
+
+.check {
+    background-color: black;
+    color: white;
+    max-width: 20%;
+    padding: 4rem;
+    font-weight: 200;
+    border-radius: 5%;
+    position: relative;
+    left: 40%;
+}
+
+/* .header {
+    font-weight: 800;
+    font-size: 3rem;
+    color: black;
+    position: relative;
+    bottom: 5rem;
+    left: 25rem;
+    max-width: 50%;
+} */
+
+/* hr {
+    border: solid 1rem;
+    padding: -1rem 2rem;
+} */

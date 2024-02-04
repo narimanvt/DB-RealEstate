@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Estate_status, Estate_type, City, Estate
 from Contracts_and_Transactions.models import Contract
-# Create your views here.
+
 
 def main_page(request):
     estates = Estate_status.objects.all()
@@ -17,7 +17,6 @@ def main_page(request):
     }
     return HttpResponse(template.render(context, request))
 
-
 def property(request):
     filtered_estates = Estate.objects.all()
     city = City.objects.all()
@@ -26,7 +25,6 @@ def property(request):
     estate_status = Estate_status.objects.all()
     template = loader.get_template("property.html")
     
-
     type = request.GET.get('type')
     status_id = request.GET.get('status')
     city_name = request.GET.get('city')
@@ -55,19 +53,9 @@ def property(request):
         filtered_estates = filtered_estates.filter(number_of_balconies=no_balcony)
     elif floor_space and floor_space_output != '0':
             filtered_estates = filtered_estates.filter(floor_space=floor_space)
-        
-
     elif payment:
         filtering = filtering.filter(payment_amount=payment)        
         
-
-    
-    
-
-    
-   
-    
-
     context = {
         'filtered_estates' : filtered_estates,
         'filtering' : filtering,

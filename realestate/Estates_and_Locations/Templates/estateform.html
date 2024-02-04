@@ -13,13 +13,16 @@
 {%block content%}
     <div id="form" class="carousel slide">
         <!-- Indicators/dots -->
-        <div class="where-to-go">
-            <button type="button" data-bs-target="#form" data-bs-slide-to="0" class="active"><img src="{% static 'Estates_and_Locations/images/location.svg' %}"></button>
-            <button type="button" data-bs-target="#form" data-bs-slide-to="1" class=""><img src="{% static 'Estates_and_Locations/images/check.svg' %}"></button>
-            <button type="button" data-bs-target="#form" data-bs-slide-to="2" class=""><img src="{% static 'Estates_and_Locations/images/name.svg' %}"></button>
-            <button type="button" data-bs-target="#form" data-bs-slide-to="3" class=""><img class="tick-button" src="{% static 'Estates_and_Locations/images/tick.svg' %}"></button>
+        <div class="where-to-go d-f justify-center">
+            <button type="button" data-bs-target="#form" data-bs-slide-to="0" class="active btn btn-outline-dark p-3 rounded-circle"><img src="{% static 'Estates_and_Locations/images/location.svg' %}"></button>
+            <img src="{% static 'Estates_and_Locations/images/Line.svg' %}">
+            <button type="button" data-bs-target="#form" data-bs-slide-to="1" class="btn p-3 btn-outline-dark rounded-circle"><img src="{% static 'Estates_and_Locations/images/check.svg' %}"></button>
+            <img src="{% static 'Estates_and_Locations/images/Line.svg' %}">
+            <button type="button" data-bs-target="#form" data-bs-slide-to="2" class="btn p-3 btn-outline-dark rounded-circle"><img src="{% static 'Estates_and_Locations/images/name.svg' %}"></button>
+            <img src="{% static 'Estates_and_Locations/images/Line.svg' %}">
+            <button type="button" data-bs-target="#form" data-bs-slide-to="3" class="btn p-3 btn-outline-dark rounded-circle"><img class="tick-button" src="{% static 'Estates_and_Locations/images/Done.svg' %}"></button>
         </div>
-
+        
         <!-- The slideshow/carousel -->
         <div class="carousel-inner">
             <div class="carousel-item active">
