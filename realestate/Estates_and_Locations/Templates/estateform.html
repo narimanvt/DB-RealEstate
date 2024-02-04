@@ -42,20 +42,41 @@
 
                     <div class="location container">
                         <div class="form-group">
-                            <label for="">City:</label>
-                            {{ form.city_id }}
+                            <label for="">Country:</label>
+                            {{ form.country }}
                         </div>
                         <div class="form-group">
-                            <label for="">Address:</label>
-                            {{form.address}}
+                            <label for="">City:</label>
+                            {{ form.city }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">District:</label>
+                            {{form.district}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">State:</label>
+                            {{ form.state }}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Street:</label>
+                            {{ form.street }}
                         </div>
                         <div class="form-group">
                             <label for="">Plate:</label>
-                            {{ form.plate }}
+                            {{ form.plate_number }}
                         </div>
                         <div class="form-group">
-                            <label for="">Postal code:</label>
-                            {{ form.postal_code }}
+                            <label for="">Unit:</label>
+                            {{ form.unit_number }}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Floor:</label>
+                            {{ form.floor_number }}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Zip code:</label>
+                            {{ form.zip_code }}
                         </div>
                     </div>
                 </form>
@@ -126,12 +147,8 @@
 
                     <div class="name">
                         <div class="form-group">
-                            <label for="">Img:</label>
-                            {{ form.photo }}
-                        </div>
-                        <div class="form-group">
                             <label for="">Name:</label>
-                            {{ form.house_name }}
+                            {{ form.estate_name }}
                         </div>
                         <div class="form-group">
                             <label for="">Year of construct:</label>
@@ -144,6 +161,10 @@
                         <div class="form-group">
                             <label for="">Status:</label>
                             {{ form.estate_status_id }}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Img:</label>
+                            {{ form.photo }}
                         </div>
                     </div>
                 </form>
@@ -179,7 +200,7 @@
                         </div>
                         <div class="form-row">
                             <label for="">Description:</label>
-                            {{ form.estate_description }}
+                            {{ form.description }}
                         </div>
                     </div>
                 </form>
