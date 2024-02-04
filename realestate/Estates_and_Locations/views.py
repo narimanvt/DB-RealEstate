@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from .models import Estate_status, Estate_type, City, Estate
 from Contracts_and_Transactions.models import Contract
+from .forms import EstateForm
 # Create your views here.
 
 def main_page(request):
@@ -59,14 +60,6 @@ def property(request):
 
     elif payment:
         filtering = filtering.filter(payment_amount=payment)        
-        
-
-    
-    
-
-    
-   
-    
 
     context = {
         'filtered_estates' : filtered_estates,
@@ -80,10 +73,17 @@ def property(request):
     return HttpResponse(template.render(context, request))
 
 def estate_form(request):
-    # Connect to db
+    if request.method == 'POST':
+        form = EstateForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('main_page')
+        
+    else:
+        form = EstateForm()
     template = loader.get_template("estateform.html")
-    # context = {}
-    return HttpResponse(template.render())
+    context = {'form' : form}
+    return HttpResponse(template.render(context, request))
 
 def details(request):
     template = loader.get_template("details.html")
