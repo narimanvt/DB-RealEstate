@@ -12,17 +12,18 @@
 
 {%block content%}
     <div id="form" class="carousel slide">
-        <!-- Indicators/dots -->
-        <div class="where-to-go d-f justify-center">
-            <button type="button" data-bs-target="#form" data-bs-slide-to="0" class="active btn btn-outline-dark p-3 rounded-circle"><img src="{% static 'Estates_and_Locations/images/location.svg' %}"></button>
+        <h1>We Are Here To Help You With Your House</h1>
+        <div class="buttons">
+            <img class="long-line" src="{% static 'Estates_and_Locations/images/Line 2.svg' %}">
+            <button type="button" data-bs-target="#form" data-bs-slide-to="0" class="active btn btn-outline-dark p-4 rounded-circle"><img class="images" src="{% static 'Estates_and_Locations/images/location.svg' %}"></button>
+            <img class="line" src="{% static 'Estates_and_Locations/images/Line.svg' %}">
+            <button type="button" data-bs-target="#form" data-bs-slide-to="1" class="btn p-4 btn-outline-dark rounded-circle"><img class="images" src="{% static 'Estates_and_Locations/images/check.svg' %}"></button>
             <img src="{% static 'Estates_and_Locations/images/Line.svg' %}">
-            <button type="button" data-bs-target="#form" data-bs-slide-to="1" class="btn p-3 btn-outline-dark rounded-circle"><img src="{% static 'Estates_and_Locations/images/check.svg' %}"></button>
+            <button type="button" data-bs-target="#form" data-bs-slide-to="2" class="btn p-4 btn-outline-dark rounded-circle"><img class="images" src="{% static 'Estates_and_Locations/images/name.svg' %}"></button>
             <img src="{% static 'Estates_and_Locations/images/Line.svg' %}">
-            <button type="button" data-bs-target="#form" data-bs-slide-to="2" class="btn p-3 btn-outline-dark rounded-circle"><img src="{% static 'Estates_and_Locations/images/name.svg' %}"></button>
-            <img src="{% static 'Estates_and_Locations/images/Line.svg' %}">
-            <button type="button" data-bs-target="#form" data-bs-slide-to="3" class="btn p-3 btn-outline-dark rounded-circle"><img class="tick-button" src="{% static 'Estates_and_Locations/images/Done.svg' %}"></button>
+            <button type="button" data-bs-target="#form" data-bs-slide-to="3" class="btn p-4 btn-outline-dark rounded-circle"><img class="images" class="tick-button" src="{% static 'Estates_and_Locations/images/Done.svg' %}"></button>
+            <img class="long-line" src="{% static 'Estates_and_Locations/images/Line 2.svg' %}">
         </div>
-        
         <!-- The slideshow/carousel -->
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -41,42 +42,47 @@
                     {% endif %}
 
                     <div class="location container">
-                        <div class="form-group">
-                            <label for="">Country:</label>
-                            {{ form.country }}
+                        <div>
+                            <div class="form-group">
+                                <p>Country:</p>
+                                {{ form.country }}
+                            </div>
+                            <div class="form-group">
+                                <p>City:</p>
+                                {{ form.city }}
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="">City:</label>
-                            {{ form.city }}
+                        <div>
+                            <div class="form-group">
+                                <p>District:</p>
+                                {{form.district}}
+                            </div>
+                            <div class="form-group">
+                                <p>State:</p>
+                                {{ form.state }}
+                            </div>
+                            <div class="form-group">
+                                <p>Street:</p>
+                                {{ form.street }}
+                            </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="">District:</label>
-                            {{form.district}}
-                        </div>
-                        <div class="form-group">
-                            <label for="">State:</label>
-                            {{ form.state }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Street:</label>
-                            {{ form.street }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Plate:</label>
-                            {{ form.plate_number }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Unit:</label>
-                            {{ form.unit_number }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Floor:</label>
-                            {{ form.floor_number }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Zip code:</label>
-                            {{ form.zip_code }}
+                        <div>
+                            <div class="form-group">
+                                <p>Plate:</p>
+                                {{ form.plate_number }}
+                            </div>
+                            <div class="form-group">
+                                <p>Unit:</p>
+                                {{ form.unit_number }}
+                            </div>
+                            <div class="form-group">
+                                <p>Floor:</p>
+                                {{ form.floor_number }}
+                            </div>
+                            <div class="form-group">
+                                <p>Zip code:</p>
+                                {{ form.zip_code }}
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -97,74 +103,38 @@
                         </div>
                     {% endif %}
                     
-                    <div class="check">
-                        <div class="form-group">
-                            <label for="">Floor space:</label>
-                            {{ form.floor_space }}
+                    <div class="container check">
+                        <div>
+                            <div class="form-group">
+                                <p>Floor space:</p>
+                                {{ form.floor_space }}
+                            </div>
+                            <div class="form-group">
+                                <p>Number of balconies:</p>
+                                {{ form.number_of_balconies }}
+                            </div>
+                            <div class="form-group">
+                                <p>Balconies space:</p>
+                                {{ form.balconies_space }}
+                            </div>
+                            <div class="form-group">
+                                <p>Number of bedrooms:</p>
+                                {{ form.number_of_bedrooms }}
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="">Number of balconies:</label>
-                            {{ form.number_of_balconies }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Balconies space:</label>
-                            {{ form.balconies_space }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Number of bedrooms:</label>
-                            {{ form.number_of_bedrooms }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Number of bathrooms:</label>
-                            {{ form.number_of_bathrooms }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Number of garages:</label>
-                            {{ form.number_of_garages }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Number of parkings:</label>
-                            {{ form.number_of_parking_spaces }}
-                        </div>
-                    </div>
-                </form>
-            </div>
-            
-            <div class="carousel-item">
-                <form method="post" class="form" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% if form.errors %}
-                        <div class="alert alert-danger">
-                            <ul>
-                                {% for field_errors in form.errors %}
-                                    {% for error in field_errors %}
-                                        <li>{{ error }}</li>
-                                    {% endfor %}
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    {% endif %}
-
-                    <div class="name">
-                        <div class="form-group">
-                            <label for="">Name:</label>
-                            {{ form.estate_name }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Year of construct:</label>
-                            {{ form.year_of_construction }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Estate_type:</label>
-                            {{ form.estate_type_id }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Status:</label>
-                            {{ form.estate_status_id }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Img:</label>
-                            {{ form.photo }}
+                        <div>
+                            <div class="form-group">
+                                <p>Number of bathrooms:</p>
+                                {{ form.number_of_bathrooms }}
+                            </div>
+                            <div class="form-group">
+                                <p>Number of garages:</p>
+                                {{ form.number_of_garages }}
+                            </div>
+                            <div class="form-group">
+                                <p>Number of parkings:</p>
+                                {{ form.number_of_parking_spaces }}
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -185,22 +155,70 @@
                         </div>
                     {% endif %}
 
-                    <div class="tick">
-                        <div class="form-group">
-                            <label for="">Pets allowed</label>
-                            {{ form.pets_allowed }}
+                    <div class="name container">
+                        <div>
+                            <div class="form-group">
+                                <p>Img:</p>
+                                {{ form.photo }}
+                            </div>
+                            <div class="form-group">
+                                <p>Name:</p>
+                                {{ form.estate_name }}
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="">Elevator</label>
-                            {{ form.has_elevator }}
+                        <div>
+                            <div class="form-group">
+                                <p>Year of construct:</p>
+                                {{ form.year_of_construction }}
+                            </div>
+                            <div class="form-group">
+                                <p>Estate_type:</p>
+                                {{ form.estate_type_id }}
+                            </div>
+                            <div class="form-group">
+                                <p>Status:</p>
+                                {{ form.estate_status_id }}
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="">Warehouse</label>
-                            {{ form.has_warehouse }}
+                    </div>
+                </form>
+            </div>
+            
+            <div class="carousel-item">
+                <form method="post" class="form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <ul>
+                                {% for field_errors in form.errors %}
+                                    {% for error in field_errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
                         </div>
-                        <div class="form-row">
-                            <label for="">Description:</label>
-                            {{ form.description }}
+                    {% endif %}
+
+                    <div class="tick container">
+                        <div>
+                            <div class="form-group">
+                                {{ form.pets_allowed }}
+                                <label for="">Pets allowed</label>
+                            </div>
+                            <div class="form-group">
+                                {{ form.has_elevator }}
+                                <label for="">Elevator</label>
+                            </div>
+                            <div class="form-group">
+                                {{ form.has_warehouse }}
+                                <label for="">Warehouse</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-row">
+                                <p>Description:</p>
+                                {{ form.description }}
+                            </div>
                         </div>
                     </div>
                 </form>

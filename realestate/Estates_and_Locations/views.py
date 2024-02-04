@@ -3,12 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Estate_status, Estate_type, City, Estate
 from Contracts_and_Transactions.models import Contract
-<<<<<<< HEAD
-
-=======
 from .forms import EstateForm
-# Create your views here.
->>>>>>> f4417ca3923480289af610992a02f4dea4047fa2
 
 def main_page(request):
     estates = Estate_status.objects.all()
@@ -60,11 +55,7 @@ def property(request):
             filtered_estates = filtered_estates.filter(floor_space=floor_space)
     elif payment:
         filtering = filtering.filter(payment_amount=payment)        
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> f4417ca3923480289af610992a02f4dea4047fa2
     context = {
         'filtered_estates' : filtered_estates,
         'filtering' : filtering,
