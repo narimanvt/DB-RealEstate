@@ -15,13 +15,13 @@
         <h1>We Are Here To Help You With Your House</h1>
         <div class="buttons">
             <img class="long-line" src="{% static 'Estates_and_Locations/images/Line 2.svg' %}">
-            <button type="button" data-bs-target="#form" data-bs-slide-to="0" class="active btn btn-outline-dark p-4 rounded-circle"><img class="images" src="{% static 'Estates_and_Locations/images/location.svg' %}"></button>
+            <button type="button" data-bs-target="#form" data-bs-slide-to="0" class="btn bg-dark p-4 rounded-circle clicking"><img class="images" src="{% static 'Estates_and_Locations/images/location.svg' %}"></button>
             <img class="line" src="{% static 'Estates_and_Locations/images/Line.svg' %}">
-            <button type="button" data-bs-target="#form" data-bs-slide-to="1" class="btn p-4 btn-outline-dark rounded-circle"><img class="images" src="{% static 'Estates_and_Locations/images/check.svg' %}"></button>
+            <button type="button" data-bs-target="#form" data-bs-slide-to="1" class="btn p-4 rounded-circle clicking"><img class="images" src="{% static 'Estates_and_Locations/images/check.svg' %}"></button>
             <img src="{% static 'Estates_and_Locations/images/Line.svg' %}">
-            <button type="button" data-bs-target="#form" data-bs-slide-to="2" class="btn p-4 btn-outline-dark rounded-circle"><img class="images" src="{% static 'Estates_and_Locations/images/name.svg' %}"></button>
+            <button type="button" data-bs-target="#form" data-bs-slide-to="2" class="btn p-4 rounded-circle clicking"><img class="images" src="{% static 'Estates_and_Locations/images/name.svg' %}"></button>
             <img src="{% static 'Estates_and_Locations/images/Line.svg' %}">
-            <button type="button" data-bs-target="#form" data-bs-slide-to="3" class="btn p-4 btn-outline-dark rounded-circle"><img class="images" class="tick-button" src="{% static 'Estates_and_Locations/images/Done.svg' %}"></button>
+            <button type="button" data-bs-target="#form" data-bs-slide-to="3" class="btn p-4 rounded-circle clicking"><img class="images" class="tick-button" src="{% static 'Estates_and_Locations/images/Done.svg' %}"></button>
             <img class="long-line" src="{% static 'Estates_and_Locations/images/Line 2.svg' %}">
         </div>
         <!-- The slideshow/carousel -->
@@ -172,7 +172,7 @@
                                 {{ form.year_of_construction }}
                             </div>
                             <div class="form-group">
-                                <p>Estate_type:</p>
+                                <p>Estate Type:</p>
                                 {{ form.estate_type_id }}
                             </div>
                             <div class="form-group">
@@ -221,10 +221,21 @@
                             </div>
                         </div>
                     </div>
+                    <button type="submit" class="btn add-home">Add Home</button>
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        const buttons = document.querySelectorAll(".clicking");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", function() {
+                this.style.backgroundColor = "#000";
+            });
+        });
+    </script>
 
 {% endblock %}
 

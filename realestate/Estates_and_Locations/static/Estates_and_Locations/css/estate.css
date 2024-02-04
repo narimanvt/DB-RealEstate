@@ -26,7 +26,15 @@ body{
 }
 
 .long-line {
-    max-width: 28%;
+    max-width: 26%;
+}
+
+.clicking:hover {
+    background-color: black;
+}
+
+.clicking:active {
+    background-color: black;
 }
 
 .location, .check, .name, .tick {
@@ -77,4 +85,16 @@ label {
 
 .name .form-group input[type="file"] {
     background-color: white;
+}
+
+.add-home {
+    color: white;
+    background-color: black;
+    font-weight: 300;
+    margin-left: 47%;
+}
+
+.add-home:hover {
+    background-color: rgb(115, 115, 115);
+    color: white;
 }
