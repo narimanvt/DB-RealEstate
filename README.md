@@ -431,11 +431,3 @@ few application-layer concerns were intentionally left for later:
   fully wired up with search/filter for every model.
 - **No automated test coverage** beyond the default Django `tests.py` stubs.
 
-## Contributors
-
-Built as a team database-design project. Each contributor owned one subsystem of
-the schema end to end (modeling, migrations, and app wiring):
-
-- **Mina** — core entities: Client, Employee, Contract, Transaction & Transaction Type
-- **Mahdye** — Estates & Locations: Estate, Estate Type/Status, Country/City, In-Charge assignment, Contact history
-- **Nariman** — contract lifecycle support: Contract Type, Payment Frequency, Contract Invoicing, Under-Contract linking
