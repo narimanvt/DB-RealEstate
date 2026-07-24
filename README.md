@@ -9,9 +9,6 @@ normalized relational schema for a realistic multi-entity domain; Django was the
 used as the implementation layer (ORM + a working UI) to prove the schema out end
 to end rather than leave it as a diagram on paper.
 
-> **Team**: designed and built by three contributors, each owning one subsystem
-> (see [Contributors](#contributors)).
-
 ---
 
 ## Table of Contents
