@@ -12,6 +12,28 @@
     </head>
     <body>
 
+        {% block nav %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'Estates_and_Locations:main_page' %}">Legacy Homes</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="siteNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Estates_and_Locations:main_page' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Estates_and_Locations:property' %}">Properties</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Clients_and_Contacts:client_list' %}">Clients</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Clients_and_Contacts:employee_list' %}">Employees</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Contracts_and_Transactions:contract_list' %}">Contracts</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Contracts_and_Transactions:transaction_list' %}">Transactions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Estates_and_Locations:sign' %}">Sign Up</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% endblock %}
+
         {% block content %}
         {% endblock %}
 

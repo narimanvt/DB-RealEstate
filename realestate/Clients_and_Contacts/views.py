@@ -1,8 +1,15 @@
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-# Create your views here.
+from .models import Client, Employee
 
-def Clients_and_Contacts(request):
-    template = loader.get_template('index.html')
-    return HttpResponse(template.render())
+
+def client_list(request):
+    template = loader.get_template('clients.html')
+    context = {'clients': Client.objects.all()}
+    return HttpResponse(template.render(context, request))
+
+
+def employee_list(request):
+    template = loader.get_template('employees.html')
+    context = {'employees': Employee.objects.all()}
+    return HttpResponse(template.render(context, request))

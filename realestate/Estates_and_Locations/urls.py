@@ -7,5 +7,5 @@ urlpatterns = [
     path('estate_form/', views.estate_form, name="estate_form"),
     path('property/', views.property, name="property"),
     path('sign/', views.sign, name="sign"),
-    path('details/', views.details, name="details")
+    path('details/<int:pk>/', views.details, name="details")
 ]

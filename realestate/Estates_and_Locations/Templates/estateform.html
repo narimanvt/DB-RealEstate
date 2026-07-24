@@ -25,20 +25,19 @@
             <img class="long-line" src="{% static 'Estates_and_Locations/images/Line 2.svg' %}">
         </div>
         <!-- The slideshow/carousel -->
+        <form method="post" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for field_errors in form.errors %}
+                            {{field_errors}}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <form method="post" class="form" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% if form.errors %}
-                        <div class="alert alert-danger">
-                            <ul>
-                                {% for field_errors in form.errors %}
-                                        {{field_errors}}
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    {% endif %}
-
                     <div class="location container">
                         <div>
                             <div class="form-group">
@@ -83,22 +82,9 @@
                             </div>
                         </div>
                     </div>
-                </form>
             </div>
-            
+
             <div class="carousel-item">
-                <form method="post" class="form" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% if form.errors %}
-                        <div class="alert alert-danger">
-                            <ul>
-                                {% for field_errors in form.errors %}
-                                        {{field_errors}}
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    {% endif %}
-                    
                     <div class="container check">
                         <div>
                             <div class="form-group">
@@ -133,22 +119,9 @@
                             </div>
                         </div>
                     </div>
-                </form>
             </div>
-            
-            <div class="carousel-item">
-                <form method="post" class="form" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% if form.errors %}
-                        <div class="alert alert-danger">
-                            <ul>
-                                {% for field_errors in form.errors %}
-                                        {{field_errors}}
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    {% endif %}
 
+            <div class="carousel-item">
                     <div class="name container">
                         <div>
                             <div class="form-group">
@@ -175,22 +148,9 @@
                             </div>
                         </div>
                     </div>
-                </form>
             </div>
-            
-            <div class="carousel-item">
-                <form method="post" class="form" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% if form.errors %}
-                        <div class="alert alert-danger">
-                            <ul>
-                                {% for field_errors in form.errors %}
-                                        {{field_errors}}
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    {% endif %}
 
+            <div class="carousel-item">
                     <div class="tick container">
                         <div>
                             <div class="form-group">
@@ -214,9 +174,9 @@
                         </div>
                     </div>
                     <button type="submit" class="btn add-home">Add Home</button>
-                </form>
             </div>
         </div>
+        </form>
     </div>
 
     <script>

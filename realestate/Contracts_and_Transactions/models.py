@@ -22,7 +22,7 @@ class Contract_type(models.Model):
     fee_percentage = models.DecimalField(max_digits=5, decimal_places=2, null=False)
 
     def __str__(self):
-        return f"{self.contract_type_name}"
+        return f"{self.contract_type}"
 
 
 class Payment_frequency(models.Model):

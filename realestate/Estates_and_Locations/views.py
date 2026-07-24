@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse
 from django.template import loader
 from .models import Estate_status, Estate_type, City, Estate
@@ -72,7 +72,7 @@ def estate_form(request):
         form = EstateForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('main_page')
+            return redirect('Estates_and_Locations:main_page')
         
     else:
         form = EstateForm()
@@ -80,16 +80,18 @@ def estate_form(request):
     context = {'form' : form}
     return HttpResponse(template.render(context, request))
 
-def details(request):
+def details(request, pk):
+    estate = get_object_or_404(Estate, pk=pk)
     template = loader.get_template("details.html")
-    return HttpResponse(template.render())
+    context = {'estate': estate}
+    return HttpResponse(template.render(context, request))
 
 def sign(request):
     if request.method == 'POST':
         form = Sign(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('main_page')
+            return redirect('Estates_and_Locations:main_page')
         
     else:
         form = Sign()

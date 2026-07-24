@@ -1,14 +1,35 @@
 {% extends "master.html" %}
 
 {% block title %}
-    Details
+    {{ estate.estate_name|default:"Estate Details" }}
 {% endblock %}
 
-{% comment %} {% block additional_head %}
-    <link rel="stylesheet" type="text/css" href="{% static 'Estates_and_Locations/css/details.css' %}">
-{% endblock %} {% endcomment %}
-
-
 {% block content %}
-    
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ estate.photo.url }}" alt="{{ estate.estate_name }}" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+            <h1>{{ estate.estate_name|default:"Untitled Estate" }}</h1>
+            <p class="text-muted">{{ estate.street }}, {{ estate.district }}, {{ estate.city }}, {{ estate.country }}</p>
+            <p>{{ estate.description }}</p>
+            <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item">Type: {{ estate.estate_type_id }}</li>
+                <li class="list-group-item">Status: {{ estate.estate_status_id }}</li>
+                <li class="list-group-item">Floor space: {{ estate.floor_space }} m²</li>
+                <li class="list-group-item">Bedrooms: {{ estate.number_of_bedrooms }}</li>
+                <li class="list-group-item">Bathrooms: {{ estate.number_of_bathrooms }}</li>
+                <li class="list-group-item">Balconies: {{ estate.number_of_balconies }} ({{ estate.balconies_space }} m²)</li>
+                <li class="list-group-item">Garages: {{ estate.number_of_garages }}</li>
+                <li class="list-group-item">Parking spaces: {{ estate.number_of_parking_spaces }}</li>
+                <li class="list-group-item">Pets allowed: {{ estate.pets_allowed|yesno:"Yes,No" }}</li>
+                <li class="list-group-item">Elevator: {{ estate.has_elevator|yesno:"Yes,No" }}</li>
+                <li class="list-group-item">Warehouse: {{ estate.has_warehouse|yesno:"Yes,No" }}</li>
+                <li class="list-group-item">Built in: {{ estate.year_of_construction }} ({{ estate.get_age_of_construction }} years old)</li>
+            </ul>
+            <a class="btn btn-dark" href="{% url 'Estates_and_Locations:property' %}">&larr; Back to Properties</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

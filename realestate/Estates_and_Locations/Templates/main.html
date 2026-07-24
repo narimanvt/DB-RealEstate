@@ -9,34 +9,36 @@
     <link rel="stylesheet" type="text/css" href="{% static 'Estates_and_Locations/css/style.css' %}">
 {% endblock %}
 
+{% block nav %}
+    <div class="container">
+        <nav class="navbar navbar-expand-sm container-fluid">
+            <div class="container">
+                <img class="col-1 navbar-brand" src="{% static 'Estates_and_Locations/images/logo.svg' %}" alt="log">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <div class="container center col-10">
+                        <ul class="navbar-nav justify-content-center">
+                            <li class="nav_item p-4"><a class="nav_link" href="#home">Home</a></li>
+                            <li class="nav_item p-4"><a class="nav_link" href="{% url 'Estates_and_Locations:property' %}">Properties</a></li>
+                            <li class="nav_item p-4"><a class="nav_link" href="{% url 'Clients_and_Contacts:client_list' %}">Clients</a></li>
+                            <li class="nav_item p-4"><a class="nav_link" href="{% url 'Contracts_and_Transactions:contract_list' %}">Contracts</a></li>
+                            <li class="nav_item p-4"><a class="nav_link" href="#about">About Us</a></li>
+                            <li class="nav_item p-4"><a class="nav_link" href="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="container text-end col-2">
+                        <a class="sign-up p-3" href="{% url 'Estates_and_Locations:sign' %}">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
 
 {% block content %}
     <div class="part1" id="home">
-        <div class="container">
-            <nav class="navbar navbar-expand-sm container-fluid">
-                <div class="container">
-                    <img class="col-1 navbar-brand" src="{% static 'Estates_and_Locations/images/logo.svg' %}" alt="log">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                        <div class="container center col-10">
-                            <ul class="navbar-nav justify-content-center">
-                                <li class="nav_item p-4"><a class="nav_link" href="#home">Home</a></li>
-                                <li class="nav_item p-4"><a class="nav_link" href="#properties">Properties</a></li>
-                                <li class="nav_item p-4"><a class="nav_link" href="#about">About Us</a></li>
-                                <li class="nav_item p-4"><a class="nav_link" href="#contact">Contact Us</a></li>
-                            </ul>
-                        </div>
-                        <div class="container text-end col-2">
-                            <a class="sign-in p-2" href="#">Sign In</a>
-                            <a class="sign-up p-3" href="#">Sign Up</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-
         <div class="container">
             <div class="dream-place">
                 <h2>Easiest way to find your</h2>
@@ -110,9 +112,9 @@
         <div class="part3">
             <div class="nothing"></div>
             <h1>PROPERTY</h1>
-            <a href='details/'><img src="{% static 'Estates_and_Locations/images/home1.jpg' %}" alt='house'></a>
-            <a href='details/'><img src="{% static 'Estates_and_Locations/images/home2.jpg' %}" alt='house'></a>
-            <a href='details/'><img src="{% static 'Estates_and_Locations/images/home3.jpg' %}" alt='house'></a>
+            <a href="{% url 'Estates_and_Locations:property' %}"><img src="{% static 'Estates_and_Locations/images/home1.jpg' %}" alt='house'></a>
+            <a href="{% url 'Estates_and_Locations:property' %}"><img src="{% static 'Estates_and_Locations/images/home2.jpg' %}" alt='house'></a>
+            <a href="{% url 'Estates_and_Locations:property' %}"><img src="{% static 'Estates_and_Locations/images/home3.jpg' %}" alt='house'></a>
             <button class="btn btn-outline-light button" type="submit"><a style="text-decoration: none; color: white" href="property/">Show More</a></button>
         </div>
     </div>

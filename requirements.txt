@@ -1,0 +1,6 @@
+# Core dependencies - required to run the project with the default SQLite database
+Django==3.2.25
+Pillow==9.5.0
+
+# Optional: only needed if DB_ENGINE=mysql (see realestate/realestate/settings.py)
+# mysqlclient==2.1.1
